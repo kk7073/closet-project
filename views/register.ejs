@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Animated Login Form | CodingNepal</title>
+    <link rel="stylesheet" href="signup.css">
+  </head>
+  <body>
+    <div class="center">
+      <h1>회원가입</h1>
+      <form action="/register" method="post">
+        <div class="txt_field">
+            <input type="text" name="name"required/>
+            <span></span>
+            <label>이름을 입력하세요.</label>
+          </div>
+        
+        <div class="txt_field">
+          <input type="text" name="id" required/>
+          <span></span>
+          <label>아이디(6~20자)</label>
+        </div>
+        <div class="txt_field">
+          <input type="password" name="password" required/>
+          <label>비밀번호(특수문자 포함)</label>
+          <span></span>
+        </div>
+        <div class="txt_field">
+            <input type="text" name='email'required/>
+            <span></span>
+            <label>이메일 주소</label>
+          </div>
+          <div class="txt_field">
+            <input type="text" name="birth" required/>
+            <span></span>
+            <label>생년월일(ex: 900622)</label>
+          </div>
+        <input type="submit" value="SignUp">
+        <div class="signup_link">
+          이미 회원이신가요? <a href='http://localhost:3000/login'>로그인</a>
+        </div>
+      </form>
+    </div>
+
+  </body>
+</html>

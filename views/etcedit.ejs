@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>User Edit</title>
+</head>
+<body>
+    <h1>수정하기</h1>
+    <form action="/update/<%= user[0].id %>?spec=<%= user[0].spec %>" method="POST">
+         제품명 <input type="text" name="sname" value="<%= user[0].name %>"><br>
+        사이즈<input type="text" name="ssize" value="<%= user[0].size %>"><br>
+        옷 종류 <input type="text" name="sspec" value="<%= user[0].spec %>"><br>
+        이미지 <input type="file" name="simage" value="<%= user[0].image %>" required><br>
+        옷장 종류 <input type="text" name="scloset_spec" value="<%= user[0].closet_spec %>"><br>
+
+        <button type="submit">수정완료</button>
+    </form>    
+</body>
+</html>

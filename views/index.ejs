@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User list</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>테스트 넘버</th>
+            <th>이미지</th>
+            <th>수정</th>
+            <th>삭제</th>
+        </tr>
+        <% for(var i=0; i<users.length; i++) { %>
+        <tr>
+            <td><%= users[i].testnum %></td>
+            <td><%= users[i].image %></td>
+            <td><a href="/edit/<%= users[i].id %>">수정</a></td>
+            <td><a href="/delete/<%= users[i].id %>">삭제</a></td>
+        </tr>
+        <% } %>
+    </table>
+</body>
+</html>

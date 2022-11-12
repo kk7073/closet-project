@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>User Edit</title>
+</head>
+<body>
+    <h1>수정하기</h1>
+    <form action="/update/<%= user[0].id %>?spec=<%= user[0].pspec %>" method="POST">
+         제품명 <input type="text" name="pname" value="<%= user[0].pname %>"><br>
+        사이즈<input type="text" name="psize" value="<%= user[0].psize %>"><br>
+        옷 종류 <input type="text" name="pspec" value="<%= user[0].pspec %>"><br>
+        이미지 <input type="file" name="pimage" value="<%= user[0].pimage %>" required><br>
+        옷장 종류 <input type="text" name="pcloset_spec" value="<%= user[0].pcloset_spec %>"><br>
+
+        <button type="submit">수정완료</button>
+    </form>    
+</body>
+</html>

@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Drop Down Sidebar Menu | CodingLab </title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <style>
+    .category{
+      margin-top: 30px;
+      font-size:3ch;
+    }
+
+    .shirtbox {
+  width: 13vw;
+  height: 29vh;
+  margin: .6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 4px dashed #ddd;
+  transition: 0.4s;
+    }
+    .pantsbox {
+
+      width: 13vw;
+  height: 29vh;
+  margin: .6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 4px dashed #ddd;
+  transition: 0.4s;
+}
+.shoesbox {
+
+width: 13vw;
+height: 29vh;
+margin: .6rem;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 5px;
+border: 4px dashed #ddd;
+transition: 0.4s;
+}
+.overcoatbox {
+
+width: 13vw;
+height: 29vh;
+margin: .6rem;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 5px;
+border: 4px dashed #ddd;
+transition: 0.4s;
+}
+.etcbox {
+
+width: 13vw;
+height: 29vh;
+margin: .6rem;
+display: flex;
+justify-content: center;
+align-items: center;
+border-radius: 5px;
+border: 4px dashed #ddd;
+transition: 0.4s;
+}
+    .boxtotal {
+      display:flex;
+      position: fixed;
+      bottom :17px;
+      right:60px;
+
+      width: 680px;
+      height: 960px;
+      margin: 10px;
+      padding: 10px;
+      border: solid 3px #161616;
+      float: left;
+    }
+    .scrolling-short{
+max-width: 950px;
+display: flex;
+overflow-x:auto;
+
+}
+.scrolling-pants{
+max-width: 950px;
+display: flex;
+overflow-x:auto;
+
+}
+.scrolling-shoes{
+max-width: 950px;
+display: flex;
+overflow-x:auto;
+
+}
+.scrolling-overcoat{
+max-width: 950px;
+display: flex;
+overflow-x:auto;
+
+}
+.scrolling-etc{
+max-width: 950px;
+display: flex;
+overflow-x:auto;
+
+}
+.shirtbox h1{
+  font-size: 1rem;
+}
+.pantsbox h1{
+  font-size: 1rem;
+}
+.shoesbox h1{
+  font-size: 1rem;
+}
+.overcoatbox h1{
+  font-size: 1rem;
+}
+.etcbox h1{
+  font-size: 1rem;
+}
+.pants_input{
+  display: none;
+}
+.close_input{
+  display: none;
+
+}
+.shoes_input{
+  display: none;
+
+}
+   </style>
+<body>
+  <div class="sidebar close">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus'></i>
+      <span class="logo_name">CodingLab</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-closet'></i>
+            <span class="link_name">옷장</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">옷장</a></li>
+          <li><a href="http://localhost:3000/index">전체옷장</a></li>
+          <li><a href="http://localhost:3000/spring">봄옷장</a></li>
+          <li><a href="http://localhost:3000/summer">여름옷장</a></li>
+          <li><a href="http://localhost:3000/fall">가을옷장</a></li>
+          <li><a href="http://localhost:3000/winter">겨울옷장</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-body' ></i>
+            <span class="link_name">코디</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">코디</a></li>
+          <li><a href="#">전체코디</a></li>
+          <li><a href="#">봄코디</a></li>
+          <li><a href="#">여름코디</a></li>
+          <li><a href="#">가을코디</a></li>
+          <li><a href="#">겨울코디</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-group' ></i>
+            <span class="link_name">팔로잉</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">팔로잉</a></li>
+          <li><a href="#">최범준</a></li>
+          <li><a href="#">정유민</a></li>
+          <li><a href="#">오승민</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bxs-plus-square' ></i>
+            <span class="link_name">추가</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">추가</a></li>
+          <li><a href="#">친구추가</a></li>
+          <li><a href="http://localhost:3000/closeadd">옷장추가</a></li>
+          <li><a href="#">코디추가</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-store' ></i>
+          <span class="link_name">거래</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">거래</a></li>
+        </ul>
+      </li>     
+      <li>
+        <a href="#">
+          <i class='bx bx-cog' ></i>
+          <span class="link_name">설정</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">설정</a></li>
+        </ul>
+      </li>
+      <li>
+    <div class="profile-details">
+      <div class="profile-content">
+      </div>
+      <div class="name-job">
+        <div class="profile_name"><%=user %></div>
+        <div class="job">Web Desginer</div>
+      </div>
+      <i class='bx bx-log-out' ></i>
+    </div>
+  </li>
+</ul>
+  </div>
+  <section class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu' ></i>
+      <span class="text">코디 선택하기</span>  
+    </div>
+    <label>검색: <input type="text" id="search" onkeyup="filter()" placeholder="제품명을검색하세요." /></label>
+    <button class ="catebtn" value ="전체" onclick="starts()" >전체</button>
+    <button class ="catebtn" value ="봄" onclick="starts()" >봄</button>
+    <button class ="catebtn" value ="여름" onclick="starts()" >여름</button>
+    <button class ="catebtn" value ="가을" onclick="starts()" >가을</button>
+    <button class ="catebtn" value ="겨울" onclick="starts()" >겨울</button>
+
+    <div class ="category">상의</div>
+    <div class="scrolling-short" id="상의" ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" >
+<% for(var i=0; i<shorts.length; i++) { %>
+  <div id="sh<%= shorts[i].id %>"  class ='card' style="min-width:225px;">
+  <div id="sh<%= shorts[i].id %>"   ondragstart="drag(this, event)" class="<%= shorts[i].id %>" title="<%= shorts[i].shspec %>" alt="<%= shorts[i].shimage %>"  style =" min-width:205px; min-height: 250px; margin: 10px .5em; background-color: white; box-shadow: 2px 6px 8px 0 rgba(22,22,26,0.18);">
+    <img id="sh<%= shorts[i].id %>"   src= "<%= shorts[i].shimage %>"  alt="<%= shorts[i].shspec %>" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-closet-spec"><%= shorts[i].shcloset_spec %></p>
+
+      <p class="card-title"><%= shorts[i].shname %></h5>
+      <p class="card-text"><%= shorts[i].shimage %></p>
+    </div>
+  </div>
+</div>
+  <% } %>
+</div>
+    <div class="category">하의</div>
+    <div class="scrolling-pants" id="하의" ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" >
+<% for(var i=0; i<pants.length; i++) { %>
+  <div id="p<%= pants[i].id %>"  class ='card' style="min-width:225px;">
+
+  <div id="p<%= pants[i].id %>"  ondragstart="drag(this, event)"   class="<%= pants[i].id %>" title="<%= pants[i].pspec %>" alt="<%= pants[i].pimage %>"  style =" min-width:205px; min-height: 250px; margin: 10px .5em; background-color: white; box-shadow: 2px 6px 8px 0 rgba(22,22,26,0.18);">
+    <img id="p<%= pants[i].id %>"  alt="<%= pants[i].pspec %>"  src="<%= pants[i].pimage %>" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-closet-spec"><%= pants[i].pcloset_spec %></p>
+
+      <p class="card-title"><%= pants[i].pname %></h5>      
+      <p class="card-text"><%= pants[i].pimage %></p>
+    </div>
+  </div>
+</div>
+
+  <% } %>
+</div>
+<div class="category">신발</div>
+<div class="scrolling-shoes" id="신발" ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" >
+<% for(var i=0; i<shoes.length; i++) { %>
+  <div id="s<%= shoes[i].id %>"  class ='card'>
+
+<div id="s<%= shoes[i].id %>"  ondragstart="drag(this, event)"  class="<%= shoes[i].id %>" title="<%= shoes[i].sspec %>" alt="<%= shoes[i].simage %>"  style =" min-width:205px; min-height: 250px; margin: 10px .5em; background-color: white; box-shadow: 2px 6px 8px 0 rgba(22,22,26,0.18);">
+<img id="s<%= shoes[i].id %>"  alt="<%= shoes[i].sspec %>"  src="<%= shoes[i].simage %>" class="card-img-top" alt="...">
+<div class="card-body">
+  <p class="card-closet-spec"><%= shoes[i].scloset_spec %></p>
+
+  <p class="card-title"><%= shoes[i].sname %></h5>      
+  <p class="card-text"><%= shoes[i].simage %></p>
+</div>
+</div>
+</div>
+
+<% } %>
+</div>
+<div class="category">아우터</div>
+<div class="scrolling-overcoat" id="아우터" ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" >
+<% for(var i=0; i<overcoat.length; i++) { %>
+  <div id="o<%= overcoat[i].id %>"  class ='card'>
+
+<div id="o<%= overcoat[i].id %>"  ondragstart="drag(this, event)"  class="<%= overcoat[i].id %>" title="<%= overcoat[i].ovspec %>" alt="<%= overcoat[i].ovimage %>"  style =" min-width:205px; min-height: 250px; margin: 10px .5em; background-color: white; box-shadow: 2px 6px 8px 0 rgba(22,22,26,0.18);">
+<img id="o<%= overcoat[i].id %>"  alt="<%= overcoat[i].ovspec %>"  src="<%= overcoat[i].ovimage %>" class="card-img-top" alt="...">
+<div class="card-body">
+  <p class="card-closet-spec"><%= overcoat[i].ovcloset_spec %></p>
+
+  <p class="card-title"><%= overcoat[i].ovname %></h5>      
+  <p class="card-text"><%= overcoat[i].ovimage %></p>
+</div>
+</div>
+</div>
+
+<% } %>
+</div>
+<div class="category">쥬얼리</div>
+<div class="scrolling-etc" id="기타" ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" >
+<% for(var i=0; i<etc.length; i++) { %>
+  <div id="e<%= etc[i].id %>"  class ='card'>
+
+<div id="e<%= etc[i].id %>"  ondragstart="drag(this, event)"  class="<%= etc[i].id %>" title="<%= etc[i].spec %>" alt="<%= etc[i].image %>"  style =" min-width:205px; min-height: 250px; margin: 10px .5em; background-color: white; box-shadow: 2px 6px 8px 0 rgba(22,22,26,0.18);">
+<img id="e<%= etc[i].id %>"  alt="<%= etc[i].spec %>"  src="<%= etc[i].image %>" class="card-img-top" alt="...">
+<div class="card-body">
+  <p class="card-closet-spec"><%= etc[i].closet_spec %></p>
+
+  <p class="card-title"><%= etc[i].name %></h5>      
+  <p class="card-text"><%= etc[i].image %></p>
+</div>
+</div>
+</div>
+
+<% } %>
+</div>
+<div class="boxtotal">
+  <div class ='firstbox'>
+ <div class="shirtbox" alt='ds' ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" ><h1 class="shirt_dragtext">상의를 드롭해주세요</h1></div>
+  <div class="pantsbox" alt='ds' ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" ><h1 class="pants_dragtext">하의를 드롭해주세요</h1></div>
+  <div class="shoesbox" alt='ds' ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" ><h1 class="shoes_dragtext">신발을 드롭해주세요</h1></div>
+</div>
+<div class ='firstbox'>
+  <div class="overcoatbox" alt='ds' ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" ><h1 class="overcoat_dragtext">아우터를 드롭해주세요</h1></div>
+  <div class="etcbox" alt='ds' ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" ><h1 class="etc_dragtext">쥬얼리를 드롭해주세요</h1></div>
+  <form action="/codyregister" method="POST">
+    <input type="text" name="codyname" value="" placeholder="코디이름을 입력해주세요" required>
+    <input class="pants_input" type="text" name="pants" value="" >
+    <input class="close_input" type="text" name="shirt" value="" >
+    <input class="shoes_input" type="text" name="shoes" value="" >
+    <input class="etc_input" type="text" name="etc" value="" >
+    <input class="overcoat_input" type="text" name="overcoat" value="" >
+<select name = 'seasonspec'>
+<option value="봄">봄</option>
+<option value="여름">여름</option>
+<option value="가을">가을</option>
+<option value="겨울">겨울</option>
+</select>
+<select name = 'codyspec'>
+  <option value="스트릿">스트릿</option>
+  <option value="캐주얼">캐주얼</option>
+  <option value="빈티지">빈티지</option>
+  <option value="모던">모던</option>
+  <option value="댄디">댄디</option>
+  <option value="미니멀리즘">미니멀리즘</option>
+  <option value="클래식">클래식</option>
+  <option value="스포티">스포티</option>
+
+  </select>
+    <button type ="submit">등록하기</button>
+ </form>
+</div>
+  
+
+</div>
+
+  </section>
+
+  <script src="script.js"></script>
+<script type="text/javascript">
+  function drag(target, food) {		//드래그 시작시 호출 할 함수
+    food.dataTransfer.setData('Text', target.id); //food매개변수는 드래그햇을떄 드래그한 타겟의 값을 저장해주기위해 쓰인다(key,value)형식으로쓰인다
+    food.dataTransfer.setData('title', target.title);// alt라는 키는 target.alt라는 데이터를 담는다?
+    food.dataTransfer.setData('value', target.className);
+  };
+  function drop(target, food) {		//드롭시 호출 할 함수
+    var id = food.dataTransfer.getData('Text'); 
+    var title = food.dataTransfer.getData('title');
+    var value = food.dataTransfer.getData('value');
+
+
+    var boxtotal = document.querySelectorAll('.boxtotal')
+    var shirtbox = document.querySelectorAll('.shirtbox')
+    var pantsbox = document.querySelectorAll('.pantsbox')
+    var shoesbox = document.querySelectorAll('.shoesbox')
+    var overcoatbox = document.querySelectorAll('.overcoatbox')
+    var etcbox = document.querySelectorAll('.etcbox')
+
+
+
+    
+console.log(name);
+
+    if(target.id=='상의'||target.id=='하의'||target.id=='신발'||target.id=='아우터'||target.id=='기타'){
+if(target.id!=title){
+alert("안됩니다");
+} else if(target.id=='상의'){
+  shirtbox[0].querySelectorAll('.shirt_dragtext')[0].innerHTML ='상의를 드롭해주세요'
+
+  boxtotal[0].querySelectorAll('.close_input')[0].value ='';
+  target.appendChild(document.getElementById(id));
+    food.preventDefault();
+}else if(target.id=='하의'){
+  pantsbox[0].querySelectorAll('.pants_dragtext')[0].innerHTML ='하의를 드롭해주세요'
+
+  boxtotal[0].querySelectorAll('.pants_input')[0].value ='';
+  
+  target.appendChild(document.getElementById(id));
+    food.preventDefault();
+}
+else if(target.id=='신발'){
+  shoesbox[0].querySelectorAll('.shoes_dragtext')[0].innerHTML ='신발을 드롭해주세요'
+
+  boxtotal[0].querySelectorAll('.shoes_input')[0].value ='';
+  
+  target.appendChild(document.getElementById(id));
+    food.preventDefault();
+}else if(target.id=='아우터'){
+  overcoatbox[0].querySelectorAll('.overcoat_dragtext')[0].innerHTML ='아우터를 드롭해주세요'
+
+  boxtotal[0].querySelectorAll('.overcoat_input')[0].value ='';
+  
+  target.appendChild(document.getElementById(id));
+    food.preventDefault();
+}else if(target.id=='기타'){
+  etcbox[0].querySelectorAll('.etc_dragtext')[0].innerHTML ='신발을 드롭해주세요'
+
+  boxtotal[0].querySelectorAll('.etc_input')[0].value ='';
+  
+  target.appendChild(document.getElementById(id));
+    food.preventDefault();
+}
+    }
+else if(target.className=='shirtbox'){
+  if(title=='하의'||title=='신발'||title=='기타'||title=='아우터'){
+    alert('상의만담으시오') 
+  }else   {   
+    shirtbox[0].querySelectorAll('.shirt_dragtext')[0].innerHTML =''
+    boxtotal[0].querySelectorAll('.close_input')[0].value =value;
+    target.appendChild(document.getElementById(id));
+    food.preventDefault();	
+    }
+}
+else if(target.className=='pantsbox'){
+  if(title=='상의'||title=='신발'||title=='기타'||title=='아우터'){
+    alert('하의만 담으시오')
+	  }else{
+      pantsbox[0].querySelectorAll('.pants_dragtext')[0].innerHTML =''
+      boxtotal[0].querySelectorAll('.pants_input')[0].value =value;
+  target.appendChild(document.getElementById(id));
+    food.preventDefault();
+
+  }
+  }
+  else if(target.className=='shoesbox'){
+  if(title=='상의'||title=='하의'||title=='기타'||title=='아우터'){
+    alert('신발만 담으시오')
+	  }else{
+      shoesbox[0].querySelectorAll('.shoes_dragtext')[0].innerHTML =''
+      boxtotal[0].querySelectorAll('.shoes_input')[0].value =value;
+  target.appendChild(document.getElementById(id));
+    food.preventDefault();
+
+  }
+  }else if(target.className=='overcoatbox'){
+  if(title=='상의'||title=='하의'||title=='신발'||title=='기타'){
+    alert('아우터만 담으시오')
+	  }else{
+      overcoatbox[0].querySelectorAll('.overcoat_dragtext')[0].innerHTML =''
+      boxtotal[0].querySelectorAll('.overcoat_input')[0].value =value;
+  target.appendChild(document.getElementById(id));
+    food.preventDefault();
+
+  }
+  }else if(target.className=='etcbox'){
+  if(title=='상의'||title=='하의'||title=='신발'||title=='아우터'){
+    alert('기타만 담으시오')
+	  }else{
+      etcbox[0].querySelectorAll('.etc_dragtext')[0].innerHTML =''
+      boxtotal[0].querySelectorAll('.etc_input')[0].value =value;
+  target.appendChild(document.getElementById(id));
+    food.preventDefault();
+
+  }
+  }else {alert('허허허')}
+
+
+
+}
+function starts() {
+
+var boo, name,a, item, i,b,body, spec;
+button = document.querySelectorAll('.catebtn ')
+item = document.getElementsByClassName("card");
+body = document.getElementsByClassName("card-body");
+color = document.getElementsByClassName("home-section");
+
+
+button.forEach(b=>b.addEventListener('click',(e)=>{ // foreach문은 배열객체를 돌리는 문인데 getElementsByClassName으로 하면은
+  e.preventDefault()                                // 타입이HTMLCollection이라고나와서 해결법 = Array.from().foreach 를 사용하던가 
+        const filter = e.target.value
+      
+for(i=0;i<item.length;i++){
+if(filter==='전체'){
+  $(".home-content span").text("전체 옷장");
+
+  color[0].style.backgroundColor = "#E4E9F7";
+
+  item[i].style.display = "flex";
+}else{ 
+  if(filter ==="봄"){
+    $(".home-content span").text("봄 옷장");
+
+    color[0].style.backgroundColor = "pink";
+
+  }else if(filter ==="여름"){
+    $(".home-content span").text("여름 옷장");
+
+    color[0].style.backgroundColor = "blue";
+
+  }else if(filter ==="가을"){
+    $(".home-content span").text("가을 옷장");
+
+    color[0].style.backgroundColor = "brown";
+
+  }else if(filter ==="겨울"){
+    $(".home-content span").text("겨울 옷장");
+
+    color[0].style.backgroundColor = "white";
+
+
+  }  
+   a= body[i].getElementsByClassName("card-closet-spec");
+  console.log(a[0]);
+  
+  if(a[0].innerHTML===filter){ // card-closet-spec클래스의 태그의 value값 === btn클래스의 사용자 선택한 버튼의 value값
+   
+    item[i].style.display = "flex"; //card클래스 보여줌
+  
+  }else{
+    item[i].style.display = "none";
+  }
+}
+}
+}))
+}
+  </script>
+  <script src="http://code.jquery.com/jquery-latest.js"></script> 
+
+</body>
+</html>

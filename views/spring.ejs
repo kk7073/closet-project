@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Drop Down Sidebar Menu | CodingLab </title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
+    crossorigin="anonymous"></script>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <style>
+.scrolling-short{
+  max-width: 1750px;
+  display: flex;
+  overflow-x:auto;
+  
+  }
+  .scrolling-pants{
+  max-width: 1350px;
+  display: flex;
+  overflow-x:auto;
+  
+  }
+  .scrolling-shoes{
+  max-width: 1350px;
+  display: flex;
+  overflow-x:auto;
+  
+  }
+    .home-section{
+    }
+    .dropdown{
+      position: fixed;
+      bottom :17px;
+      right:60px
+    }
+   </style>
+<body>
+  <div class="sidebar close">
+    <div class="logo-details">
+      <i class='bx bxl-c-plus-plus'></i>
+      <span class="logo_name">CodingLab</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-closet'></i>
+            <span class="link_name">옷장</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">옷장</a></li>
+          <li><a href="http://localhost:3000/index">전체옷장</a></li>
+          <li><a href="http://localhost:3000/login">봄옷장</a></li>
+          <li><a href="http://localhost:3000/summer">여름옷장</a></li>
+          <li><a href="http://localhost:3000/fall">가을옷장</a></li>
+          <li><a href="http://localhost:3000/winter">겨울옷장</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-body' ></i>
+            <span class="link_name">코디</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">코디</a></li>
+          <li><a href="#">전체코디</a></li>
+          <li><a href="#">봄코디</a></li>
+          <li><a href="#">여름코디</a></li>
+          <li><a href="#">가을코디</a></li>
+          <li><a href="#">겨울코디</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-group' ></i>
+            <span class="link_name">팔로잉</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">팔로잉</a></li>
+          <li><a href="#">최범준</a></li>
+          <li><a href="#">정유민</a></li>
+          <li><a href="#">오승민</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bxs-plus-square' ></i>
+            <span class="link_name">추가</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">추가</a></li>
+          <li><a href="#">친구추가</a></li>
+          <li><a href="http://localhost:3000/closeadd">옷장추가</a></li>
+          <li><a href="#">코디추가</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-store' ></i>
+          <span class="link_name">거래</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">거래</a></li>
+        </ul>
+      </li>     
+      <li>
+        <a href="#">
+          <i class='bx bx-cog' ></i>
+          <span class="link_name">설정</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">설정</a></li>
+        </ul>
+      </li>
+      <li>
+    <div class="profile-details">
+      <div class="profile-content">
+      </div>
+      <div class="name-job">
+        <div class="profile_name"><%=name[0].id%>님</div>
+
+        <div class="job">Web Desginer</div>
+      </div>           <a class='bx bx-log-out' href="/logout">로그아웃</a>
+
+
+    </div>
+  </li>
+</ul>
+  </div>
+
+  <section class="home-section">
+    <div class="home-content">
+      <i class='bx bx-menu' ></i>
+      <span class="text">전체 옷장</span>  
+    </div>
+    <div class="searchBox">
+      <label><i class='bx bx-search-alt-2'></i><input type="text" id="search" onkeyup="filter()" placeholder="제품명을검색하세요." /></label>
+
+<button class ="catebtn" value ="전체" onclick="starts()" >전체</button>
+<button class ="catebtn" value ="봄" onclick="starts()" >봄</button>
+<button class ="catebtn" value ="여름" onclick="starts()" >여름</button>
+<button class ="catebtn" value ="가을" onclick="starts()" >가을</button>
+<button class ="catebtn" value ="겨울" onclick="starts()" >겨울</button>
+
+
+
+
+
+
+    </div>
+      <div class ="category">상의</div>
+      <div class="scrolling-short" id="상의" >
+<% for(var i=0; i<short.length; i++) { %>
+  <div class="card">
+    <img src="<%= short[i].shimage %>" onclick="modalclick()" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <div class="card-body">
+      <p class="card-title"><%= short[i].shname %></p>
+      <p class="card-spec"><%= short[i].shspec %></p>
+      <p class="card-closet-spec"><%= short[i].shcloset_spec %></p>
+
+      <a class="btn btn-primary" href="/edit/<%= short[i].id %>?spec=<%= short[i].shspec %>">수정</a>
+      <a class="btn btn-primary" href="/delete/<%= short[i].id %>?spec=<%= short[i].shspec %>">삭제</a>
+    </div>
+  </div>
+  <% } %>  
+</div>
+      <div class ="category">하의</div>
+      <div class="scrolling-pants" id="하의" >
+  <% for(var i=0; i<pants.length; i++) { %>
+    <div class="card">
+      <img src="<%= pants[i].pimage %>" onclick="modalclick()" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <div class="card-body">
+        <p class="card-title"><%= pants[i].pname %></p>
+        <p class="card-spec"><%= pants[i].pspec %></p>
+        <p class="card-closet-spec"><%= pants[i].pcloset_spec %></p>
+  
+        <a class="btn btn-primary" href="/edit/<%= pants[i].id %>?spec=<%= pants[i].pspec %>">수정</a>
+        <a class="btn btn-primary" href="/delete/<%= pants[i].id %>?spec=<%= pants[i].pspec %>">삭제</a>
+      </div>
+    </div>
+    <% } %>  
+  </div>
+    <div class ="category">신발</div>
+    <div class="scrolling-shoes" id="신발" >
+
+    <% for(var i=0; i<shoes.length; i++) { %>
+
+      <div class="card">
+        <img src="<%= shoes[i].simage %>" onclick="modalclick()" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <div class="card-body">
+          <p class="card-title"><%= shoes[i].sname %></p>
+          <p class="card-spec"><%= shoes[i].sspec %></p>
+          <p class="card-closet-spec"><%= short[i].pcloset_spec %></p>
+    
+          <a class="btn btn-primary" href="/edit/<%= shoes[i].id %>?spec=<%= shoes[i].sspec %>">수정</a>
+          <a class="btn btn-primary" href="/delete/<%= shoes[i].id %>?spec=<%= shoes[i].sspec %>">삭제</a>
+        </div>
+      </div>
+      <% } %>  
+    </div>
+    <div class ="category">아우터</div>
+    <div class="scrolling-shoes" id="아우터" >
+
+    <% for(var i=0; i<overcoat.length; i++) { %>
+
+      <div class="card">
+        <img src="<%= overcoat[i].ovimage %>" onclick="modalclick()" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <div class="card-body">
+          <p class="card-title"><%= overcoat[i].ovname %></p>
+          <p class="card-spec"><%= overcoat[i].ovspec %></p>
+          <p class="card-closet-spec"><%= overcoat[i].ovcloset_spec %></p>
+    
+          <a class="btn btn-primary" href="/edit/<%= overcoat[i].id %>?spec=<%= overcoat[i].ovspec %>">수정</a>
+          <a class="btn btn-primary" href="/delete/<%= overcoat[i].id %>?spec=<%= overcoat[i].ovspec %>">삭제</a>
+        </div>
+      </div>
+      <% } %>  
+    </div>
+    <div class ="category">쥬얼리</div>
+    <div class="scrolling-shoes" id="쥬얼리" >
+
+    <% for(var i=0; i<etc.length; i++) { %>
+
+      <div class="card">
+        <img src="<%= etc[i].image %>" onclick="modalclick()" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <div class="card-body">
+          <p class="card-title"><%= etc[i].name %></p>
+          <p class="card-spec"><%= etc[i].spec %></p>
+          <p class="card-closet-spec"><%= etc[i].closet_spec %></p>
+    
+          <a class="btn btn-primary" href="/edit/<%= etc[i].id %>?spec=<%= etc[i].spec %>">수정</a>
+          <a class="btn btn-primary" href="/delete/<%= etc[i].id %>?spec=<%= etc[i].spec %>">삭제</a>
+        </div>
+      </div>
+      <% } %>  
+    </div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"></h5>
+          <img src="" class="card-img" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
+          
+        </div>
+        <div class="modal-body">
+          <div class="num"> </div>
+          <p></p>
+          <p></p>
+
+          <a href="">수정</a>
+          <a href="">삭제</a>
+
+
+       </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+    <div class="dropdown">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+        등록하기
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+        <li><a class="dropdown-item" href="/closeadd?user=<%=name[0].id%>">옷 등록</a></li>
+        <li><a class="dropdown-item" href="/select?user=<%=name[0].id%>">카테고리별로 코디등록 </a></li>
+        <li><a class="dropdown-item" href="#">사진으로 코디등록</a></li>
+      </ul>
+    </div>
+    <div >
+  
+  </section>
+
+  <script src="script.js"></script>
+<script>
+  function start() {
+
+var boo, name, item, i,b,body, spec;
+items = document.getElementsByClassName("catebtn");
+button = document.querySelectorAll('.catebtn ')
+item = document.getElementsByClassName("card");
+body = document.getElementsByClassName("card-body");
+
+button.forEach(b=>b.addEventListener('click',(e)=>{ // foreach문은 배열객체를 돌리는 문인데 getElementsByClassName으로 하면은
+  e.preventDefault()                                // 타입이HTMLCollection이라고나와서 해결법 = Array.from().foreach 를 사용하던가 
+        const filter = e.target.value               // querySelectorAll()을 사용하면 된다.
+        console.log(button);
+        console.log(items);                                          
+        //color[0].style.backgroundColor = "#E4E9F7";
+
+
+for(i=0;i<item.length;i++){
+if(filter==='전체'){
+
+  item[i].style.display = "flex";
+}else{
+  spec = body[i].getElementsByClassName("card-spec");
+  if(spec[0].innerHTML===filter){ // card-spec클래스의 태그의 value값 === btn클래스의 사용자 선택한 버튼의 value값
+    
+    item[i].style.display = "flex"; //card클래스 보여줌
+  
+  }else{
+    item[i].style.display = "none";
+  }
+}
+}
+}))
+
+}
+
+function starts() {
+
+var boo, name, item, i,b,body, spec;
+button = document.querySelectorAll('.catebtn ');
+item = document.getElementsByClassName("card");
+body = document.getElementsByClassName("card-body");
+color = document.getElementsByClassName("home-section");
+
+
+button.forEach(b=>b.addEventListener('click',(e)=>{ // foreach문은 배열객체를 돌리는 문인데 getElementsByClassName으로 하면은
+  e.preventDefault()                                // 타입이HTMLCollection이라고나와서 해결법 = Array.from().foreach 를 사용하던가 
+        const filter = e.target.value               // querySelectorAll()을 사용하면 된다.
+
+for(i=0;i<item.length;i++){
+if(filter==='전체'){
+  $(".home-content span").text("전체 옷장");
+
+  color[0].style.backgroundColor = "#E4E9F7";
+
+  item[i].style.display = "flex";
+}else{ 
+  if(filter ==="봄"){
+    $(".home-content span").text("봄 옷장");
+
+    color[0].style.backgroundColor = "pink";
+
+  }else if(filter ==="여름"){
+    $(".home-content span").text("여름 옷장");
+
+    color[0].style.backgroundColor = "blue";
+
+  }else if(filter ==="가을"){
+    $(".home-content span").text("가을 옷장");
+
+    color[0].style.backgroundColor = "brown";
+
+  }else if(filter ==="겨울"){
+    $(".home-content span").text("겨울 옷장");
+
+    color[0].style.backgroundColor = "white";
+
+  }
+  spec = body[i].getElementsByClassName("card-closet-spec");
+  
+  if(spec[0].innerHTML===filter){ // card-closet-spec클래스의 태그의 value값 === btn클래스의 사용자 선택한 버튼의 value값
+   
+    item[i].style.display = "flex"; //card클래스 보여줌
+  
+  }else{
+    item[i].style.display = "none";
+  }
+}
+}
+}))
+
+}
+
+
+</script>
+<script src="http://code.jquery.com/jquery-latest.js"></script> 
+
+</body>
+</html>
