@@ -115,12 +115,11 @@ app.post('/login', (req, res) => {
 					throw err;
 				}
 				if(rows.length){
-					req.session.uid=id;
 					req.session.name=rows[0];
+					req.session.uid=id;
 					req.session.upw=rows[0].password
 					req.session.isLogined=true;
-					console.log(rows[0].id)
-
+                    console.log(req.session.uid);
 					req.session.save(function(){
 						res.render('spring',{pants : rows[1],short : rows[2],shoes : rows[3],etc: rows[4],overcoat:rows[5], name : rows[0]});
 					})
@@ -152,15 +151,16 @@ app.get('/logout',(req,res)=>{
 
 
 app.get('/select', (req, res) => {
-	const sql = "select * from pants;";
-	const sql2 = "select * from shirt;";
-	const sql3 = "select * from shoes;";
-	const sql4 = "select * from etc;";
-    const sql5 = "select * from overcoat;";
+	console.log(req.session.uid)
+	const id = req.session.uid;
+	const sql = "select * from pants where puserid =?;";
+	const sql2 = "select * from shirt where shuserid =?;";
+	const sql3 = "select * from shoes where suserid =?;";
+	const sql4 = "select * from etc where userid =?;";
+    const sql5 = "select * from overcoat where ovuserid =?;";
 
-	con.query(sql+sql2+sql3+sql4+sql5,function (err, results, fields) {  
+	con.query(sql+sql2+sql3+sql4+sql5,[id,id,id,id,id],function (err, results, fields) {  
 	if (err) throw err;	
-	console.log(results[0]);
 	res.render('select',{user: req.query.user, pants : results[0], shorts : results[1], shoes: results[2], etc: results[3], overcoat: results[4]});
 	});
 });
@@ -183,10 +183,11 @@ app.post('/codyregister', (req,res) => {
 	const seasonspec = req.body.seasonspec;
 	const overcoat = req.body.overcoat;
 	const etc = req.body.etc;
+	const codyuserid = req.session.uid;
+console.log(req.session.uid);
 
-
-	const sql =  "INSERT INTO cody (codyname,shirt, pants,shoes,overcoat,etc,codyspec,seasonspec) VALUES(?,?,?,?,?,?,?,?);";
-	con.query(sql,[codyname,shirt, pants,shoes,overcoat,etc,codyspec,seasonspec],function(err, result, fields){
+	const sql =  "INSERT INTO cody (codyname,shirt, pants,shoes,overcoat,etc,codyspec,seasonspec,codyuserid) VALUES(?,?,?,?,?,?,?,?,?);";
+	con.query(sql,[codyname,shirt, pants,shoes,overcoat,etc,codyspec,seasonspec,codyuserid],function(err, result, fields){
 		if (err) throw err;
 		res.redirect('/codyregister');
 	});
@@ -199,7 +200,7 @@ app.post('/',upload.single('testimage'), (req, res) => {
 	const image = req.body.image;
 	const spec = req.body.spec;
 	const closet = req.body.closet_spec;
-	const userid = req.body.userid;
+	const userid = req.session.uid;
 if(spec=='하의'){
 	const sql = "INSERT INTO pants (pname, psize, pcloset_spec,pimage,puserid) VALUES(?,?,?,?,?);";
 	con.query(sql,[testnum,image,closet,imagetest,userid],function(err, result, fields){
