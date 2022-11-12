@@ -1,0 +1,647 @@
+element.style {
+    overflow: inherit;
+}
+
+body {
+    margin: 0;
+    background-color: #fff;
+    color: #333;
+    font-size: 12px;
+    font-family: 'Noto Sans','Noto Sans KR','Noto Sans JP','Noto Sans TC','맑은 고딕',Dotum,'Apple SD Gothic Neo',Sans-serif;
+}
+
+body {
+    display: block;
+    margin: 8px;
+}
+
+#container.codi_view {
+    max-width: 990px;
+}
+
+#container {
+    margin: 0 auto;
+    max-width: 1285px;
+}
+
+
+
+#container #codi_view_container {
+    overflow: auto;
+    padding: 0;
+    padding-bottom: 30px;
+}
+
+.document_dialog {
+    overflow: hidden;
+}
+
+.codi_view_wrapper {
+    overflow: auto;
+}
+
+#container #codi_view_container .codi_dialog .codi_image_wrapper {
+    border: none;
+}
+
+.document_dialog .document_content_wrapper {
+    float: left;
+    position: relative;
+    padding: 10px 0;
+    width: 66%;
+    padding-top: 0;
+    overflow: hidden;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+
+
+
+
+.codi_dialog .profile_wrapper {
+    position: relative;
+    margin: 20px 20px 0 20px;
+    overflow: hidden;
+}
+
+.codi_dialog .profile_wrapper .profile_image {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+}
+
+.codi_dialog .profile_wrapper .profile_image {
+    float: left;
+    width: 36px;
+    height: 36px;
+    margin: 0;
+}
+
+.codi_dialog .profile_wrapper .profile_image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+img {
+    border: 0;
+}
+
+
+
+
+.codi_dialog .profile_wrapper .nick_name {
+    margin-top: 15px;
+    text-align: center;
+    font-family: 'Noto Sans','Noto Sans KR','Noto Sans JP','Noto Sans TC','맑은 고딕',Dotum,'Apple SD Gothic Neo',Sans-serif;
+    font-size: 16px;
+}
+
+.codi_dialog .profile_wrapper .nick_name {
+    float: left;
+    padding: 0 10px;
+    margin-top: 10px;
+    font-size: 14px;
+}
+
+.nick_name {
+    text-transform: none;
+}
+
+.codi_dialog .profile_wrapper {
+    margin: 0 20px;
+}
+
+.codi_dialog .profile_wrapper .nick_name a {
+    color: #ff2477;
+    text-decoration: none;
+}
+
+a, button {
+    cursor: pointer;
+}
+
+.codi_dialog .codi_image_wrapper .title_wrapper {
+    opacity: .9;
+    background: #fff;
+    position: relative;
+    top: -50px;
+    padding: 0 10px;
+}
+
+.codi_dialog .codi_image_wrapper .title_wrapper .title {
+    font-size: 16px;
+    display: none;
+    padding: 5px 0 5px 5px;
+    color: #333;
+}
+
+.label, .title {
+    text-transform: capitalize;
+}
+
+.document_dialog .document_content_wrapper .action_wrapper img {
+    position: absolute;
+    right: 20px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.document_dialog .document_content_wrapper .action_wrapper .document_menu {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    padding: 2px 0;
+    border: 1px solid #ccc;
+    display: none;
+    background: #fff;
+}
+
+.document_dialog .document_content_wrapper .action_wrapper .document_menu .btn:first-child {
+    border-top: 0;
+}
+
+.document_dialog .document_content_wrapper .action_wrapper .document_menu .modify {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAAjElEQVR42qXQUQ2AMAxFUSRMAhImBSlIWEj4RsIkTAISJmESkFBa0hf20dAASy4ZoWcBBiL61HXxVlrWxJE2A3qocLsE7EI5XUGVsAe0QNDBxmXu0PuNiyaUBzpIXUUPiDID6CHAgDkLVgNVIBN231IsZEFBI4YV5/71nmDqYOMmDHmw3X8Ny4dv+wdPpHhXePZ1dnUAAAAASUVORK5CYII=);
+}
+
+.document_dialog .document_content_wrapper .action_wrapper .document_menu .btn {
+    display: block;
+    min-width: 66px;
+    font-size: 8pt;
+    padding: 6px 4px 6px 30px;
+    margin: 0 5px;
+    letter-spacing: 2px;
+    background: #fff no-repeat 6px 50%;
+    color: #666;
+    border-top: 1px solid #ddd;
+    text-decoration: none;
+}
+
+.btn {
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+.codi_dialog .codi_image_wrapper .image_wrapper {
+    border-bottom: 1px solid rgba(0,0,0,.12);
+    padding: 0 32px 0 10px;
+}
+
+.codi_dialog .codi_image_wrapper .image_wrapper .image img {
+    width: 100%;
+}
+
+.codi_dialog .codi_image_wrapper .image_wrapper .content {
+    position: relative;
+    overflow: auto;
+    color: #666;
+    padding: 0 10px;
+}
+
+.codi_dialog .codi_image_wrapper .image_wrapper .content .description {
+    font-size: 14px;
+    padding-bottom: 15px;
+}
+
+.codi_dialog .codi_image_wrapper .regdate {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAYAAAA71pVKAAAAfElEQVR42sXTwQnAIAwF0I7kCI7ihtlAD168eHYIN/DyS5BC+ULFWmjgH1/ERA8Ar7OPrxIRI71A0TJHL8IdujvIOcN7z00cY4WWT6u1opTCWGMZhwUcGGMB43vMA2ut6dCmODw1iDGOdx6nPSalxNjO9szhPe+/sP8+xgkLBYFRMWOCJQAAAABJRU5ErkJggg==) no-repeat 0 -1px;
+    font-size: 8pt;
+    color: #999;
+    padding-left: 20px;
+    position: absolute;
+    right: 0;
+    bottom: 15px;
+}
+
+.codi_dialog .codi_image_wrapper .line {
+    border-top: 1px solid #fff;
+    width: 100%;
+    margin: 5px 0;
+}
+
+.document_dialog .document_content_wrapper .bottom_wrapper {
+    position: relative;
+    bottom: -40px;
+}
+
+.codi_dialog .codi_image_wrapper .bottom_wrapper .liked_wrapper .total_liked {
+    padding-left: 56px;
+    padding-top: 8px;
+    padding-bottom: 12px;
+}
+
+.liked_wrapper .total_liked {
+    font-size: 14px;
+    padding: 9px 0 9px 45px;
+}
+
+.liked_wrapper .total_liked span.numLike {
+    font-weight: 700;
+}
+
+.codi_dialog .codi_image_wrapper .bottom_wrapper .like_icon {
+    left: 25px;
+}
+
+.like_icon {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    position: absolute;
+    top: 7px;
+    left: 12px;
+    width: 24px;
+    height: 24px;
+    background: url(//s1.codibook.net/images/glyphs/large/heart_off.png) no-repeat 0 0;
+    background-size: 24px;
+}
+
+.codi_dialog .codi_image_wrapper .bottom_wrapper .style_wrapper {
+    position: absolute;
+    right: 15px;
+    top: 0;
+    display: none;
+}
+
+.share_wrapper {
+    position: absolute;
+    right: 204px;
+    bottom: -4px;
+    text-align: center;
+}
+
+.share_wrapper .pinterest {
+    background: url(data:image/png;base64,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) no-repeat;
+    background-size: 100%;
+}
+
+.share_wrapper button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    margin: 4px;
+}
+.share_wrapper .kakaotalk {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAEHUlEQVR42uzVgQXAMBCF4TdKRrtNb4TboCtkhPRB0WqhkoD/8YMAn3B6bhwKl278itKFvubH5gqoaZVrb8gdnOn1G/bSn0x1IQcYywtx+LaUAmFPQAMNNAENNNAgCOhTny8x/T+3jgOO59XxI2NkOZDa0YAmBj8/xvJ/2zTu/xOLBP/n+on/t5GTIweD9ILMAJkFMnM0oEH40CJOcKCEmEkB2jtjXKliGIpORUeFkChYAcugYg1U0LAHFkDDUlgCDUugZzOgU1zp60qMfzSOlZe4sATSzHv2iePYTv4ESFOEZ/MO3nUSaLyMaT8PbgCdd6PDlqAF+NuXVxi8gqBLKfDb9oDrgdeD/vH95d8P796uClmCjuh6PdB4iDKHCwk6o/s1QLO613txrndjw8qgyV1RdgvBlhVBkzZtA1mCTSuBZiHZDrIka5G8dbgYDyPloP/8fLE9ZAm2VoNWZ01l9BGCrdhcDppGzSGQJdicDLpDRhxCCkCr6jtSsL0EtHtze/Uc0OrEHS0wmA466mN8fv+G6fUcUdbiq/us0IRuaf2QmaBpttxV4OvH1w/Ee30/LoQwVF02zbAIDKmZ2+C6s8n73KYYn5sFmvQmuzfAd/4b+/DuIM0CznBa5s9lsHzws1O9W2a2gQGMNMZL5Hl+fMC9h2fH5b0PaAxan3c7HLIXYtnZxy0xPj8CBejBO/NBO+SBxR69poHmBTNA40FBaMkHHUKO5XKgvTumWK2pnA2a9wWQNwPtGYGyAow2CJmgA8g7gY7j59NFlH8/ArpBG1BChqVPNgBzQCMUM/uCvhMiPKTw3UzQnuXwrtGsqiCPzgA93pwhO8kArcJLsINn1efRKJgGelRRZQuZeTQerMEe3WiGRX2vYxC0eZNXjF5ZegGTBlqNJt4fL441vQ4BSQBtBUrQQAKKzSo9MxokBGj3QKuhNBqv+cxC/WiBNqAGL+otAOzprBppXvHdoKkUeH1pP3p8wfCpiXhsVIk9+gz+P3K4RzvYof58NrZRA3/OnmG4saDcWIMrvVffM3SvPlGwvQ40wgJyGGQtmoWgfWXeX1SpFoP2vHp/Ud6cAbrPRccpaj1oz637DEcBaMFuyAWgBbshF4BWmd0n/CtAa6fkiofU0VmtgUuAVp59ocPq6Gp5cjHozdM/eheU1Xv80f2qgL0IuTRovGW1bMI9eAvQGLZAM4hMwmJwMejdwob6zqwNhAaHuxXoBG8WrFAEdPVfCrst5s14JNO8f/du8mGbAa9s0Ezlyb9r1KC189KAHXR1yGAQDgJc3yalYcO5CY/BDTqhPYr3JlZiDRrIDje/j9CggUpYiHu5DbqlQTfolgbdoBt0yx6gW2qu2Wv5VXNxZMun+Vehtvwuuty3L/ctvK66r6suuoC9L2D/B7eMxrTtXrKcAAAAAElFTkSuQmCC) no-repeat;
+    background-size: 100%;
+}
+
+.share_wrapper .facebook {
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAB20lEQVR42mJABzaRgPbuGimCKAjj+ByF43AADrASQwwpkqERJLhLghPhJLhDRoK7SzRs4z7y9jX276ovgrXfeM9UdVkkkYFE3FAhYhdxPikBTklkBqikZUZMP0I+AifpOXqFbXVNJjOPyBEwrCfiqBz4yIADgk6sQROggQaaAA00ATo9p8PNKuhzK9omv0xe6YD872OA9kpqvMItqRlzp5c3XMMScKA/Au4ZWjWCBdojsms4u7gRG6BtxXwtBloFGWiPyAHPcgEdzWx1FQpoOXUDWuECRKGAHp5YA1rjokShgJZ+BNAKaemZN8bb2j2V829pJHkmLaNeAfqPnW3IJbpsEbRJvSNYGrsBoMOWbAkK3w9ouVwH2n8UdhtAAw000EADDTTQQAMNNNBA6/eXpR3pNyHrfVvUO0adPufPtD0VSrCBViig1W9jAQ30H4D+O2cdQAMt3wtohZKnoYD+ead2QCvczAVa69QOaIOSB92B1qi/1r2TNUc2U98x2OcG+hx9aPrRQAMNNNBAAw000EADDTTQQAMNNNBAAw000EADDTTQQAMNNNBAAw000EADDTTQQAM9ALTOmL0I0NYTsT8KFegZ+8N9gT76bJLyDNAWx1WbD2AH2msA+y0nCmjhX5hcJQAAAABJRU5ErkJggg==) no-repeat;
+    background-size: 100%;
+}
+
+.share_wrapper .url {
+    /* background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAACRElEQVR42u3dgafbUBTH8fwp+9PyzwxQIIAH2EAglIdn1AalHtGBFkUVVliLMgN3PcZY3N+WHudmMt/DD/ruzWs+OW6Swq2Gld6+r+9Z3ZOIK2ZXV6IM+M09PVBh6c00h3wBJzyX37Dp5KLpf63JYBRPXXHjmySrCoRpAnSxAA000ARooAnQQANNgAaaAA000ARooAnQQANNgAaaAA000Mt1SsfzMPFz9Xid/SmlT59TevfhMYCn5/zx7PN/BW0nkq0Cc228u759/zl/0f71e9mFyZR9DvTo+vLVOjMWGmiNrTtbQwOdWU8N84+12QEdNt66dnvQazbQwf/reFZwodBAtx/z815eA6GB1nB2PKAngF6uA6GBNtDiazTQTWdPGCFPHUAbQC423kD1+gw0b4azhdbI8dD8eieOHQcN9PVmxwiF5ma42T32Jgi0c/yi1Y90/90P/2NOaLMrA63H2uczhV6uR7zeilxvYi11QDu6el7QTed5jNIXaHvwQDu6em7Qlv1JYw+/nOErAKun5zho1dVWTfc49Mur/W1sAqFFVwt0fdKqm/3Qeo7+XwLaX/HQeilwvbH5ofW9QHT1HKAFtu5aXcezQA6C1veDWUDrZWR70ODDLjaE8s/sqqsNdW7QojMMZxjDbTrfRdQ3Hd/c3PdYtMNxvsRDE0eABhpoAjTQBGiggSZAA02ABhpoAjTQBGiggSZAA02ABhpoAjTQhG32psmKjSOnSV1+K1TSs7nv1Jv7lt+umu2q2YB9og3YfwBzQEYVX6xZHAAAAABJRU5ErkJggg==) no-repeat; */
+    background-size: 100%;
+}
+
+#find_pw_dialog_container, #non_login_order_history_dialog_container, #share_url_dialog_container {
+    display: none;
+}
+
+.formpanel_dialog {
+    font-family: 'Noto Sans','Noto Sans KR','Noto Sans JP','Noto Sans TC','맑은 고딕',Dotum,'Apple SD Gothic Neo',Sans-serif;
+    padding: 0;
+}
+
+.formpanel_dialog div.title {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.label, .title {
+    text-transform: capitalize;
+}
+
+.formpanel_dialog .content {
+    padding: 10px;
+}
+
+.formpanel_dialog .content div.row {
+    overflow: hidden;
+    padding: 7px 0;
+    clear: both;
+}
+
+.formpanel_dialog .content div.row div.input {
+    line-height: 23px;
+    float: left;
+}
+
+.formpanel_dialog .content div.row div.input input.share_url {
+    margin-left: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    width: 230px;
+    height: 24px;
+    margin-right: 5px;
+    float: left;
+}
+
+input {
+    accent-color: #ff2477;
+}
+
+input[type="text" i] {
+    padding: 1px 2px;
+}
+
+.share_wrapper button {
+    width: 32px;
+    height: 32px;
+    border: none;
+    margin: 4px;
+}
+
+.btn_general2 {
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin: 0;
+    font-family: 'Noto Sans','Noto Sans KR','Noto Sans JP','Noto Sans TC','맑은 고딕',Dotum,'Apple SD Gothic Neo',Sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    outline: 0;
+    color: #ff2477;
+    border: 1px solid #ff2477;
+    border-radius: 5px;
+    padding: 0 15px;
+    background: 0 0;
+    text-align: center;
+    height: 28px;
+    line-height: 27px;
+}
+
+.codi_dialog #cart_btn_wrapper {
+    width: 200px;
+    position: absolute;
+    bottom: 10px;
+    right: 0;
+}
+
+.codi_dialog #cart_btn_wrapper .btn_buy {
+    width: 90%;
+    height: 32px;
+    border-radius: 16px;
+    background-color: transparent;
+    border: 1px solid #333;
+    color: #333;
+}
+
+#container #codi_view_container .codi_dialog .codi_info_wrapper {
+    width: 100%;
+    margin: 0 auto;
+    float: none;
+    margin-top: 10px;
+}
+
+
+
+.codi_dialog .codi_info_wrapper {
+    float: right;
+    margin-left: 0;
+    box-sizing: border-box;
+    padding-right: 17px;
+}
+
+.codi_dialog .codi_info_wrapper {
+    display: none;
+}
+
+.document_dialog .document_info_wrapper {
+    border-radius: 0;
+}
+
+.codi_dialog .codi_info_wrapper .profile_codi_wrapper {
+    display: none;
+}
+
+.codi_dialog .codi_info_wrapper .profile_codi_wrapper {
+    padding-top: 20px;
+    overflow: hidden;
+}
+
+.codi_dialog .codi_info_wrapper .profile_codi_wrapper .profile_codi_title {
+    font-size: 16px;
+    font-family: 'Noto Sans','Noto Sans KR','Noto Sans JP','Noto Sans TC','맑은 고딕',Dotum,'Apple SD Gothic Neo',Sans-serif;
+    color: #555;
+    padding-left: 4px;
+}
+
+.codi_dialog .codi_info_wrapper .profile_codi_wrapper .profile_codi_title a {
+    color: #333;
+    text-decoration: none;
+}
+
+.codi_dialog .codi_info_wrapper .profile_codi_wrapper .profile_codi {
+    overflow: hidden;
+    padding-top: 10px;
+}
+
+#container #codi_view_container .codi_dialog .comment_wrapper {
+    width: 93%;
+    margin: 0 auto;
+    float: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.comment_wrapper {
+    margin-top: 10px;
+    padding: 10px;
+    overflow: auto;
+}
+
+.comment_wrapper .comment_container {
+    float: left;
+    width: 100%;
+}
+.comment_wrapper .comment_container .comment_write_wrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+.comment_wrapper .comment_container .comment_write_wrapper table {
+    width: 100%;
+}
+
+
+.comment_wrapper .comment_container .profile_image {
+    width: 45px;
+    height: 45px;
+}
+
+.comment_wrapper .comment_container .profile_image img {
+    border-radius: 50%;
+    width: 100%;
+    height: 100%;
+}
+
+.comment_wrapper .comment_container .comment_write_wrapper .comment_write {
+    padding-left: 16px;
+}
+
+.comment_wrapper .comment_container .comment_write_wrapper .comment_write_bg {
+    position: absolute;
+    top: 20px;
+    left: 56px;
+    width: 11px;
+    height: 11px;
+    background: url(//s1.codibook.net/images/detail/bg_comment_input.png) no-repeat;
+}
+
+.comment_wrapper .comment_container .comment_write_wrapper .comment_write input[type=text] {
+    font-family: 'Noto Sans','Noto Sans KR','Noto Sans JP','Noto Sans TC','맑은 고딕',Dotum,'Apple SD Gothic Neo',Sans-serif;
+    border: 1px solid #e71d73;
+    padding: 6px 0;
+    width: 100%;
+    height: 30px;
+    text-indent: 1em;
+    font-size: 14px;
+}
+
+.clear_both {
+    clear: both;
+}
+
+.detail_title {
+    margin: 25px 0 12px 3px;
+}
+
+.detail_title {
+    margin-left: 15px;
+}
+
+.detail_title span {
+    text-transform: capitalize;
+    font-size: 16px;
+    color: #555;
+}
+
+#container #content_wrapper {
+    margin-left: 0;
+    padding: 5px;
+}
+
+#container #content_wrapper {
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#container #codi_view_container #content_wrapper #content {
+    padding-bottom: 0;
+}
+
+#container #content_wrapper #content {
+    position: relative;
+    margin-right: -8px;
+    margin-left: -8px;
+    overflow: hidden;
+    padding-bottom: 65px;
+}
+
+#container #codi_view_container #content_wrapper #content .grid-sizer, #container #codi_view_container #content_wrapper #content .set_wrapper {
+    width: 25%;
+}
+
+.set_wrapper {
+    width: 25%;
+    float: left;
+}
+
+.set_wrapper .set_container {
+    padding: 8px;
+    overflow: hidden;
+}
+
+.set_wrapper .set_container .set {
+    margin: 0;
+    border: 1px solid rgba(0,0,0,.12);
+}
+
+.set_wrapper .set_container a {
+    text-decoration: none;
+    color: #333;
+}
+
+.set_wrapper .set_container .set .thumb_wrapper {
+    text-align: center;
+}
+
+.set_wrapper .set_container .set .thumb_wrapper img.item.thumb {
+    margin-top: 15px;
+    max-width: 70%;
+    max-height: 300px;
+}
+
+.set_wrapper .set_container .set .thumb_wrapper img.thumb {
+    max-width: 100%;
+    max-height: 380px;
+    cursor: pointer;
+}
+
+.set_wrapper .set_container .set .profile_wrapper {
+    overflow: hidden;
+    padding: 15px 15px 10px 15px;
+    padding-top: 10px;
+    margin: 0;
+}
+
+
+
+.set_wrapper .set_container .set .profile_wrapper .profile_info .nickname {
+    font-family: gotham-medium;
+    display: block;
+    font-size: 12px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #333;
+    font-weight: 400;
+    text-decoration: none;
+    line-height: 37px;
+}
+
+.set_wrapper .set_container .item .profile_wrapper .profile_info .nickname {
+    font-size: 12px;
+    text-decoration: none;
+    line-height: 100%;
+}
+
+.set_wrapper .set_container .set .title_wrapper {
+    padding: 0 15px 0 15px;
+    color: #555;
+    text-decoration: none;
+    text-transform: capitalize;
+    line-height: 18px;
+}
+
+.set_wrapper .set_container .set .info_wrapper {
+    padding: 10px 15px 15px 15px;
+    height: 16px;
+}
+
+.set_wrapper .set_container .set .info_wrapper .price {
+    color: #ff2477;
+    font-size: 14px;
+    float: left;
+}
+
+.set_wrapper .set_container .set .info_wrapper .like {
+    cursor: pointer;
+    background: url(//s1.codibook.net/images/glyphs/large/heart_off.png) no-repeat 0 0;
+    background-size: 22px;
+}
+
+.set_wrapper .set_container .set .info_wrapper .action {
+    float: right;
+    color: #999;
+    padding-left: 22px;
+    height: 20px;
+}
