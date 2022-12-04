@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="main.css" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'/>
+
+
+  </head>
+  <body>
+        <div class="sidebar close">
+          <div class="logo-details">
+            <i class='bx bxl-c-plus-plus'></i>
+            <span class="logo_name">CodingLab</span>
+          </div>
+          <ul class="nav-links">
+            <li>
+              <div class="iocn-link">
+                <a href="/login">
+                  <i class='bx bx-closet'></i>
+                  <span class="link_name">옷장</span>
+                </a>
+              </div>
+         
+            </li>
+            <li>
+              <div class="iocn-link">
+                <a href="/codyregister">
+                  <i class='bx bx-body' ></i>
+                  <span class="link_name">코디</span>
+                </a>
+              </div>
+            
+            </li>
+            <li>
+              <div class="iocn-link">
+                <a href="#">
+                  <i class='bx bx-group' ></i>
+                  <span class="link_name">팔로잉</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow' ></i>
+              </div>
+              <ul class="sub-menu">
+                <li><a class="link_name" href="#">팔로잉</a></li>
+                <li><a href="#">최범준</a></li>
+                <li><a href="#">정유민</a></li>
+                <li><a href="#">오승민</a></li>
+              </ul>
+            </li>
+            <li>
+              <div class="iocn-link">
+                <a href="#">
+                  <i class='bx bxs-plus-square' ></i>
+                  <span class="link_name">추가</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow' ></i>
+              </div>
+              <ul class="sub-menu">
+                <li><a class="link_name" href="#">추가</a></li>
+                <li><a href="#">친구추가</a></li>
+                <li><a href="#">옷장추가</a></li>
+                <li><a href="#">코디추가</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">
+                <i class='bx bx-store' ></i>
+                <span class="link_name">거래</span>
+              </a>
+              <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">거래</a></li>
+              </ul>
+            </li>     
+            <li>
+              <a href="#">
+                <i class='bx bx-cog' ></i>
+                <span class="link_name">설정</span>
+              </a>
+              <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">설정</a></li>
+              </ul>
+            </li>
+            <li>
+          <div class="profile-details">
+            <div class="profile-content">
+            </div>
+            <div class="name-job">
+              <div class="profile_name"><%=name%>님</div>
+              <div class="job">Web Desginer</div>
+            </div>
+            <i class='bx bx-log-out' ></i>
+          </div>
+        </li>
+      </ul>
+        </div>
+        <section class="home-section">
+          <div class="home-content">
+            <i class='bx bx-menu' ></i>
+            <span class="text">코디 정보</span>  
+          </div>
+          <div class="close_list">
+           <% if(cody[0].codyimage!=null){ %>
+            <% for(var i=0; i<cody.length; i++) { %>
+             
+                <p class="card-closet-spec"><%= cody[i].seasonspec %></p>
+                <div class = "first_box"style="margin-left:50px; margin-top:25px;">
+      
+                <img src="<%= cody[i].codyimage %>"style="width: 500px; height: 500px; margin-top:16px;" alt="..." >
+              </div>
+              
+             
+
+          </div>
+          <div class ="codyname" style="  font-family: 'GangwonEduPowerExtraBoldA';margin-left:70px;"><%= cody[i].codyname %></div>
+
+          <div style ='margin-top:30px;margin-left:70px; border-bottom: 2px solid rgb(170, 167, 167); width:650px;'></div>
+          <span style="   font-family: 'GangwonEduPowerExtraBoldA'; margin-left:70px;">코디에 사용된 상품</span>
+          <button class ="catebtn" style=" margin-left:400px;"><a href="/product?spec=<%=cody[i].cody_id %>&name=여러개">코디 판매하기</a></button>
+
+         <div class ='close_list'>
+          <div class="close_card">
+            <img src="<%= cody[i].shimage %>" onclick="modalclick()" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="card-body">
+              <p class="card-title"><%= cody[i].shname %></p>
+              <p class="card-spec">dsds</p>
+              <p class="card-closet-spec"></p>
+            </div>
+          </div>
+          <div class="close_card">
+            <img src="<%= cody[i].pimage %>" onclick="modalclick()" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="card-body">
+              <p class="card-title"><%= cody[i].pname %></p>
+              <p class="card-spec">dsds</p>
+              <p class="card-closet-spec"></p>
+            </div>
+          </div>
+          <div class="close_card">
+            <img src="<%= cody[i].simage %>" onclick="modalclick()" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="card-body">
+              <p class="card-title"><%= cody[i].sname %></p>
+              <p class="card-spec">dsds</p>
+              <p class="card-closet-spec"></p>
+            </div>
+          </div>
+          <div class="close_card">
+            <img src="<%= cody[i].image%>" onerror="this.parentNode.style.display='none'" class="card-img-top" alt="<%= cody[i].image%>" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="card-body">
+              <p class="card-title"><%= cody[i].name %></p>
+              <p class="card-spec">dsds</p>
+              <p class="card-closet-spec"></p>
+            </div>
+          </div>
+          <div class="close_card">
+            <img src="<%= cody[i].ovimage %>"onerror="this.parentNode.style.display='none'" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <div class="card-body">
+              <p class="card-title"><%= cody[i].ovname %></p>
+              <p class="card-spec">dsds</p>
+              <p class="card-closet-spec"></p>
+            </div>
+        </div>
+        </div>
+          <% } %>  
+          <% } %>  
+
+          <% if(cody[0].codyimage==null){ %>
+
+          <% for(var i=0; i<cody.length; i++) { %>
+             
+            <p class="card-closet-spec"><%= cody[i].seasonspec %></p>
+            <div class = "first_box"style="margin-left:50px; margin-top:25px;">
+  
+            <img src="<%= cody[i].shimage %>"style="width: 200px; height: 200px; margin-top:16px;" alt="..." >
+            <img src="<%= cody[i].pimage %>" style="width: 200px; height: 200px; margin-top:10px;" alt="..." >
+            <img src="<%= cody[i].simage %>" style="width: 200px; height: 200px; margin-top:10px;" alt="..." >
+
+          </div>
+          
+          <div class = "second_box"style="margin-left:30px;">
+  
+            <img src="<%= cody[i].image  %>"  onerror="this.onerror=null; this.src='no_img.jpg'"; style="width: 200px; height: 200px;" alt="...">
+            <img src="<%= cody[i].ovimage %>"  onerror="this.onerror=null; this.src='no_img.jpg'"; style="width: 200px; height: 200px; margin-top:10px;" alt="...">
+          </div>
+
+          
+
+      </div>
+      <div class ="codyname" style="margin-left:70px;"><%= cody[i].codyname %></div>
+
+      <div style ='margin-top:30px;margin-left:70px; border-bottom: 2px solid rgb(170, 167, 167); width:250px;'></div>
+      <span style="margin-top:100px; margin-left:70px;">코디에 사용된 상품</span>
+      <button class ="catebtn" style="margin-top:100px; margin-left:700px;"><a href="/product?spec=<%=cody[i].cody_id %>&name=여러개">코디 판매하기</a></button>
+
+     <div class ='close_list'>
+      <div class="close_card">
+        <img src="<%= cody[i].shimage %>" onclick="modalclick()" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <div class="card-body">
+          <p class="card-title"><%= cody[i].shname %></p>
+          <p class="card-spec">dsds</p>
+          <p class="card-closet-spec"></p>
+        </div>
+      </div>
+      <div class="close_card">
+        <img src="<%= cody[i].pimage %>" onclick="modalclick()" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <div class="card-body">
+          <p class="card-title"><%= cody[i].pname %></p>
+          <p class="card-spec">dsds</p>
+          <p class="card-closet-spec"></p>
+        </div>
+      </div>
+      <div class="close_card">
+        <img src="<%= cody[i].simage %>" onclick="modalclick()" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <div class="card-body">
+          <p class="card-title"><%= cody[i].sname %></p>
+          <p class="card-spec">dsds</p>
+          <p class="card-closet-spec"></p>
+        </div>
+      </div>
+      <div class="close_card">
+        <img src="<%= cody[i].image%>" onerror="this.parentNode.style.display='none'" class="card-img-top" alt="<%= cody[i].image%>" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <div class="card-body">
+          <p class="card-title"><%= cody[i].name %></p>
+          <p class="card-spec">dsds</p>
+          <p class="card-closet-spec"></p>
+        </div>
+      </div>
+      <div class="close_card">
+        <img src="<%= cody[i].ovimage %>"onerror="this.parentNode.style.display='none'" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <div class="card-body">
+          <p class="card-title"><%= cody[i].ovname %></p>
+          <p class="card-spec">dsds</p>
+          <p class="card-closet-spec"></p>
+        </div>
+    </div>
+    </div>
+      <% } %>  
+          <% } %>  
+
+            
+              
+        </section>
+      
+        <script src="script.js"></script>
+        <script src="http://code.jquery.com/jquery-latest.js"></script> 
+
+  </body>
+  <script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
+<script>
+      var sf = new Snowflakes();
+
+</script> 
+</html>

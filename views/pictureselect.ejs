@@ -17,10 +17,20 @@
       margin-top: 30px;
       font-size:3ch;
     }
-
+    .codybox {
+  width: 23vw;
+  height: 77vh;
+  margin: .6rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 4px dashed #ddd;
+  transition: 0.4s;
+    }
     .shirtbox {
-  width: 13vw;
-  height: 29vh;
+  width: 8vw;
+  height: 17vh;
   margin: .6rem;
   display: flex;
   justify-content: center;
@@ -31,8 +41,8 @@
     }
     .pantsbox {
 
-      width: 13vw;
-  height: 29vh;
+      width: 8vw;
+  height: 17vh;
   margin: .6rem;
   display: flex;
   justify-content: center;
@@ -43,8 +53,8 @@
 }
 .shoesbox {
 
-width: 13vw;
-height: 29vh;
+  width: 8vw;
+  height: 17vh;
 margin: .6rem;
 display: flex;
 justify-content: center;
@@ -55,8 +65,8 @@ transition: 0.4s;
 }
 .overcoatbox {
 
-width: 13vw;
-height: 29vh;
+  width: 8vw;
+  height: 17vh;
 margin: .6rem;
 display: flex;
 justify-content: center;
@@ -66,9 +76,8 @@ border: 4px dashed #ddd;
 transition: 0.4s;
 }
 .etcbox {
-
-width: 13vw;
-height: 29vh;
+  width: 8vw;
+  height: 17vh;
 margin: .6rem;
 display: flex;
 justify-content: center;
@@ -146,6 +155,14 @@ overflow-x:auto;
   display: none;
 
 }
+.etc_input{
+  display: none;
+
+}
+.overcoat_input{
+  display: none;
+
+}
    </style>
 <body>
   <div class="sidebar close">
@@ -156,37 +173,21 @@ overflow-x:auto;
     <ul class="nav-links">
       <li>
         <div class="iocn-link">
-          <a href="#">
+          <a href="/login">
             <i class='bx bx-closet'></i>
             <span class="link_name">옷장</span>
           </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
         </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">옷장</a></li>
-          <li><a href="http://localhost:3000/index">전체옷장</a></li>
-          <li><a href="http://localhost:3000/spring">봄옷장</a></li>
-          <li><a href="http://localhost:3000/summer">여름옷장</a></li>
-          <li><a href="http://localhost:3000/fall">가을옷장</a></li>
-          <li><a href="http://localhost:3000/winter">겨울옷장</a></li>
-        </ul>
+  
       </li>
       <li>
         <div class="iocn-link">
-          <a href="#">
+          <a href="/codyregister">
             <i class='bx bx-body' ></i>
             <span class="link_name">코디</span>
           </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
         </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">코디</a></li>
-          <li><a href="#">전체코디</a></li>
-          <li><a href="#">봄코디</a></li>
-          <li><a href="#">여름코디</a></li>
-          <li><a href="#">가을코디</a></li>
-          <li><a href="#">겨울코디</a></li>
-        </ul>
+        
       </li>
       <li>
         <div class="iocn-link">
@@ -194,7 +195,6 @@ overflow-x:auto;
             <i class='bx bx-group' ></i>
             <span class="link_name">팔로잉</span>
           </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
         </div>
         <ul class="sub-menu">
           <li><a class="link_name" href="#">팔로잉</a></li>
@@ -264,9 +264,9 @@ overflow-x:auto;
     <div class ="category">상의</div>
     <div class="scrolling-short" id="상의" ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" >
 <% for(var i=0; i<shorts.length; i++) { %>
-  <div id="sh<%= shorts[i].id %>"  class ='card' style="min-width:225px;">
-  <div id="sh<%= shorts[i].id %>"   ondragstart="drag(this, event)" class="<%= shorts[i].id %>" title="<%= shorts[i].shspec %>" alt="<%= shorts[i].shimage %>"  style =" min-width:205px; min-height: 250px; margin: 10px .5em; background-color: white; box-shadow: 2px 6px 8px 0 rgba(22,22,26,0.18);">
-    <img id="sh<%= shorts[i].id %>"   src= "<%= shorts[i].shimage %>"  alt="<%= shorts[i].shspec %>" class="card-img-top" alt="...">
+  <div id="sh<%= shorts[i].id %>"  class ='card' style="min-width:155px; min-height:55px;">
+  <div id="sh<%= shorts[i].id %>"   ondragstart="drag(this, event)" class="<%= shorts[i].id %>" title="<%= shorts[i].shspec %>" alt="<%= shorts[i].shimage %>"  style =" min-width:85px; min-height: 85px; margin: 10px .5em; background-color: white; box-shadow: 2px 6px 8px 0 rgba(22,22,26,0.18);">
+    <img id="sh<%= shorts[i].id %>"   src= "<%= shorts[i].shimage %>"  alt="<%= shorts[i].shspec %>" class="card-img-cody" alt="...">
     <div class="card-body">
       <p class="card-closet-spec"><%= shorts[i].shcloset_spec %></p>
 
@@ -280,9 +280,9 @@ overflow-x:auto;
     <div class="category">하의</div>
     <div class="scrolling-pants" id="하의" ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" >
 <% for(var i=0; i<pants.length; i++) { %>
-  <div id="p<%= pants[i].id %>"  class ='card' style="min-width:225px;">
+  <div id="p<%= pants[i].id %>"  class ='card' style="min-width:175px; min-height:55px;">
 
-  <div id="p<%= pants[i].id %>"  ondragstart="drag(this, event)"   class="<%= pants[i].id %>" title="<%= pants[i].pspec %>" alt="<%= pants[i].pimage %>"  style =" min-width:205px; min-height: 250px; margin: 10px .5em; background-color: white; box-shadow: 2px 6px 8px 0 rgba(22,22,26,0.18);">
+  <div id="p<%= pants[i].id %>"  ondragstart="drag(this, event)"   class="<%= pants[i].id %>" title="<%= pants[i].pspec %>" alt="<%= pants[i].pimage %>"  style =" min-width:105px; min-height: 100px; margin: 10px .5em; background-color: white; box-shadow: 2px 6px 8px 0 rgba(22,22,26,0.18);">
     <img id="p<%= pants[i].id %>"  alt="<%= pants[i].pspec %>"  src="<%= pants[i].pimage %>" class="card-img-top" alt="...">
     <div class="card-body">
       <p class="card-closet-spec"><%= pants[i].pcloset_spec %></p>
@@ -337,7 +337,7 @@ overflow-x:auto;
   <div id="e<%= etc[i].id %>"  class ='card'>
 
 <div id="e<%= etc[i].id %>"  ondragstart="drag(this, event)"  class="<%= etc[i].id %>" title="<%= etc[i].spec %>" alt="<%= etc[i].image %>"  style =" min-width:205px; min-height: 250px; margin: 10px .5em; background-color: white; box-shadow: 2px 6px 8px 0 rgba(22,22,26,0.18);">
-<img id="e<%= etc[i].id %>"  alt="<%= etc[i].spec %>"  src="<%= etc[i].image %>" class="card-img-top" alt="...">
+<img id="e<%= etc[i].id %>" ondragstart="drag(this, event)" alt="<%= etc[i].spec %>"  src="<%= etc[i].image %>" class="card-img-top" alt="...">
 <div class="card-body">
   <p class="card-closet-spec"><%= etc[i].closet_spec %></p>
 
@@ -351,20 +351,20 @@ overflow-x:auto;
 </div>
 <div class="boxtotal">
   <div class ='firstbox'>
- <div class="shirtbox" alt='ds' ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" ><h1 class="shirt_dragtext">상의를 드롭해주세요</h1></div>
-  <div class="pantsbox" alt='ds' ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" ><h1 class="pants_dragtext">하의를 드롭해주세요</h1></div>
-  <div class="shoesbox" alt='ds' ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" ><h1 class="shoes_dragtext">신발을 드롭해주세요</h1></div>
-</div>
-<div class ='firstbox'>
-  <div class="overcoatbox" alt='ds' ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" ><h1 class="overcoat_dragtext">아우터를 드롭해주세요</h1></div>
-  <div class="etcbox" alt='ds' ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" ><h1 class="etc_dragtext">쥬얼리를 드롭해주세요</h1></div>
-  <form action="/codyregister" method="POST">
+  <form action="/codypicregister" enctype="multipart/form-data"  method="POST">
+    <input name="codyimage" type="file" onchange="readURL(this)"required/> 
+    <img id="preview" style ="width:480px;justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    border: 4px dashed #ddd;
+    transition: 0.4s; height:700px;"/>
     <input type="text" name="codyname" value="" placeholder="코디이름을 입력해주세요" required>
-    <input class="pants_input" type="text" name="pants" value="" >
-    <input class="close_input" type="text" name="shirt" value="" >
-    <input class="shoes_input" type="text" name="shoes" value="" >
-    <input class="etc_input" type="text" name="etc" value="" >
+    <input class="pants_input" type="text" name="pants" value="">
+    <input class="close_input" type="text" name="shirt" value="">  
+    <input class="shoes_input" type="text" name="shoes" value="">
+    <input class="etc_input" type="text" name="etc" value="">
     <input class="overcoat_input" type="text" name="overcoat" value="" >
+
 <select name = 'seasonspec'>
 <option value="봄">봄</option>
 <option value="여름">여름</option>
@@ -385,9 +385,17 @@ overflow-x:auto;
     <button type ="submit">등록하기</button>
  </form>
 </div>
+  <div class ='firstbox'>
+ <div class="shirtbox" alt='ds' ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" ><h1 class="shirt_dragtext">상의를 드롭하세요</h1></div>
+  <div class="pantsbox" alt='ds' ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" ><h1 class="pants_dragtext">하의를 드롭하세요</h1></div>
+  <div class="shoesbox" alt='ds' ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" ><h1 class="shoes_dragtext">신발을 드롭하세요</h1></div>
+  <div class="overcoatbox" alt='ds' ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" ><h1 class="overcoat_dragtext">아우터를 드롭하세요</h1></div>
+  <div class="etcbox" alt='ds' ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" ><h1 class="etc_dragtext">쥬얼리를 드롭하세요</h1></div>
+</div>
+ 
+</div>
   
 
-</div>
 
   </section>
 
@@ -573,4 +581,9 @@ if(filter==='전체'){
   <script src="http://code.jquery.com/jquery-latest.js"></script> 
 
 </body>
+<script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
+<script>
+      var sf = new Snowflakes();
+
+</script> 
 </html>

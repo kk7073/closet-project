@@ -18,27 +18,7 @@
 
     .home-section{
     }
-    .boxtotal {
-      
-      display: flex;
-      bottom :17px;
-      right:60px;
-
-      width: 290px;
-      height: 460px;
-      margin: 10px;
-      padding: 10px;
-      border: solid 2px rgb(161, 156, 156);
-      float: left;
-    }
-    .dropdown{
-      position: fixed;
-      bottom :17px;
-      right:60px
-    }
-    .boxtotal:hover{
-      border: solid 2px red;
-    }
+    
    </style>
 <body>
   <div class="sidebar close">
@@ -49,37 +29,21 @@
     <ul class="nav-links">
       <li>
         <div class="iocn-link">
-          <a href="#">
+          <a href="/login">
             <i class='bx bx-closet'></i>
             <span class="link_name">옷장</span>
           </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
         </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">옷장</a></li>
-          <li><a href="http://localhost:3000/index">전체옷장</a></li>
-          <li><a href="http://localhost:3000/login">봄옷장</a></li>
-          <li><a href="http://localhost:3000/summer">여름옷장</a></li>
-          <li><a href="http://localhost:3000/fall">가을옷장</a></li>
-          <li><a href="http://localhost:3000/winter">겨울옷장</a></li>
-        </ul>
+    
       </li>
       <li>
         <div class="iocn-link">
-          <a href="#">
+          <a href="/codyregister">
             <i class='bx bx-body' ></i>
             <span class="link_name">코디</span>
           </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
         </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">코디</a></li>
-          <li><a href="#">전체코디</a></li>
-          <li><a href="#">봄코디</a></li>
-          <li><a href="#">여름코디</a></li>
-          <li><a href="#">가을코디</a></li>
-          <li><a href="#">겨울코디</a></li>
-        </ul>
+  
       </li>
       <li>
         <div class="iocn-link">
@@ -145,29 +109,57 @@
   </div>
 
   <section class="home-section">
+    <div class="sectiontop">
+      <span class="close_count">옷 개수: </span>
+      <span class="close_count">코디 개수:</span>
+      <span class="close_count">*도움말</span>
+      <span class="close_count">*마이 쇼핑</span>
+      <span class="user_name"><%=name%>님 환영합니다</span> 
+
+      <a class="logout" href="/logout">로그아웃</a>
+
+    </div>
+    <div class="secondtop">
+      <span class="logo">옷짱.</span> 
+
+      <select value="2022년" name ='YEAR' title ="연도" class="select_year" style="margin-bottom:20px;">
+        <option value="2022년">2022년</option>
+        <option value="2021년">2021년</option>
+        <option value="2020년">2020년</option>
+        <option value="2019년">2019년</option>
+      </select>
+   </div>
+   <div class="thirdtop">
+
+    <input class="input_search"  type="text" id="search" onkeyup="codyfilter()" placeholder="찾고싶은 제품명을 검색하세요." />
+  </div>
+ 
+    <div style ='margin-top:0px; border-bottom: 2px solid rgb(170, 167, 167); width:1900px;'></div>
     <div class="home-content">
-      <i class='bx bx-menu' ></i>
-      <span class="text">드레스룸</span>  
-    </div>
-    <div class="searchBox">
-      <label>검색: <input type="text" id="search" onkeyup="codyfilter()" placeholder="제품명을검색하세요." /></label>
-<button class ="catebtn" value ="봄" onclick="starts()" >봄</button>
-<button class ="catebtn" value ="여름" onclick="starts()" >여름</button>
-<button class ="catebtn" value ="가을" onclick="starts()" >가을</button>
-<button class ="catebtn" value ="겨울" onclick="starts()" >겨울</button>
 
+      <span class="text">전체 코디</span>  
+      <div class="buttongroup">
+        <button class ="catebtn" value ="전체" onclick="starts()" >전체</button>
+        <button class ="catebtn" value ="봄" onclick="starts()" >봄</button>
+        <button class ="catebtn" value ="여름" onclick="starts()" >여름</button>
+        <button class ="catebtn" value ="가을" onclick="starts()" >가을</button>
+        <button class ="catebtn" value ="겨울" onclick="starts()" >겨울</button>
+        <button class ="catebtn" value ="캐주얼" onclick="codyspec()" >캐주얼</button>
+        <button class ="catebtn" value ="스포티" onclick="codyspec()" >스포티</button>
 
-
-
-
-
+        </div>
     </div>
 
+    <div class ="category">카테고리별 코디</div>
 
     <div class="close_list">
+
       <% for(var i=0; i<cody.length; i++) { %>
        
-        <div class="boxtotal" onclick="location.href='/select';">
+        <div class="boxtotal" onclick="location.href='/codyselect?codyid=<%= cody[i].cody_id %>';">
+          <p class="card-closet-spec"><%= cody[i].seasonspec %></p>
+          <p class="card-closet-codyspec"><%= cody[i].codyspec %></p>
+
 
           <div class = "first_box">
             <div class ="codyname"><%= cody[i].codyname %></div>
@@ -178,49 +170,43 @@
         </div>
         <div class = "second_box">
 
-          <img src="<%= cody[i].image %>"  style="width: 120px; height: 120px;" alt="...">
-          <img src="<%= cody[i].ovimage %>"  style="width: 120px; height: 120px; margin-top:10px;" alt="...">
+          <img src="<%= cody[i].image  %>"  onerror="this.onerror=null; this.src='no_img.jpg'"; style="width: 120px; height: 120px;" alt="...">
+          <img src="<%= cody[i].ovimage %>"  onerror="this.onerror=null; this.src='no_img.jpg'"; style="width: 120px; height: 120px; margin-top:10px;" alt="...">
         </div>
         </div>
         <% } %>  
-     
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel"></h5>
-          <img src="" class="card-img" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
-          
-        </div>
-        <div class="modal-body">
-          <div class="num"> </div>
-          <p></p>
-          <p></p>
-
-          <a href="">수정</a>
-          <a href="">삭제</a>
-
-
-       </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  
 
     </div>
+    <div class ="category">사진별 코디</div>
+    <div class="close_list">
+
+      <% for(var i=0; i<codynotnull.length; i++) { %>
+       
+        <div class="boxtotal" onclick="location.href='/codyselect?codyid=<%= codynotnull[i].cody_id %>';">
+          <p class="card-closet-spec"><%= codynotnull[i].seasonspec %></p>
+          <p class="card-closet-codyspec"><%= codynotnull[i].codyspec %></p>
+
+          <div class = "first_box">
+            <div class ="codyname"><%= codynotnull[i].codyname %></div>
+
+          <img src="<%= codynotnull[i].codyimage %>"style="width: 270px; height: 500px; margin-top:16px;" alt="..." >
+        </div>
+   
+        </div>
+        <% } %>  
+
+    </div>
+
     <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
         등록하기
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="/closeadd">옷 등록</a></li>
-        <li><a class="dropdown-item" href="/select">카테고리별로 코디등록 </a></li>
-        <li><a class="dropdown-item" href="#">사진으로 코디등록</a></li>
+        <li><a class="dropdown-item" href="//closeadd?user=<%=name[0]%>">옷 등록</a></li>
+        <li><a class="dropdown-item" href="/select?user=<%=name[0]%>">카테고리별로 코디등록 </a></li>
+        <li><a class="dropdown-item" href="/pictureselect?user=<%=name[0]%>">사진으로 코디등록</a></li>
+
+        
       </ul>
     </div>
     <div>
@@ -245,47 +231,12 @@ for(i=0;i<item.length;i++){
   }
 }
 }
-  function start() {
-
-var boo, name, item, i,b,body, spec;
-items = document.getElementsByClassName("catebtn");
-button = document.querySelectorAll('.catebtn ')
-item = document.getElementsByClassName("card");
-body = document.getElementsByClassName("card-body");
-
-button.forEach(b=>b.addEventListener('click',(e)=>{ // foreach문은 배열객체를 돌리는 문인데 getElementsByClassName으로 하면은
-  e.preventDefault()                                // 타입이HTMLCollection이라고나와서 해결법 = Array.from().foreach 를 사용하던가 
-        const filter = e.target.value               // querySelectorAll()을 사용하면 된다.
-        console.log(button);
-        console.log(items);                                          
-        //color[0].style.backgroundColor = "#E4E9F7";
-
-
-for(i=0;i<item.length;i++){
-if(filter==='전체'){
-
-  item[i].style.display = "flex";
-}else{
-  spec = body[i].getElementsByClassName("card-spec");
-  if(spec[0].innerHTML===filter){ // card-spec클래스의 태그의 value값 === btn클래스의 사용자 선택한 버튼의 value값
-    
-    item[i].style.display = "flex"; //card클래스 보여줌
-  
-  }else{
-    item[i].style.display = "none";
-  }
-}
-}
-}))
-
-}
-
 function starts() {
 
 var boo, name, item, i,b,body, spec;
 items = document.getElementsByClassName("catebtn");
 button = document.querySelectorAll('.catebtn ')
-item = document.getElementsByClassName("card");
+item = document.getElementsByClassName("boxtotal");
 body = document.getElementsByClassName("card-body");
 color = document.getElementsByClassName("home-section");
 name = document.getElementsByClassName("text");
@@ -301,51 +252,95 @@ button.forEach(b=>b.addEventListener('click',(e)=>{ // foreach문은 배열객�
 
 for(i=0;i<item.length;i++){
 if(filter==='전체'){
-  $(".home-content span").text("전체 옷장");
+  $(".home-content span").text("전체 코디");
 
   color[0].style.backgroundColor = "#E4E9F7";
 
   item[i].style.display = "flex";
 }else{ 
   if(filter ==="봄"){
-    $(".home-content span").text("봄 옷장");
+    $(".home-content span").text("봄 코디");
 
     color[0].style.backgroundColor = "pink";
 
   }else if(filter ==="여름"){
-    $(".home-content span").text("여름 옷장");
+    $(".home-content span").text("여름 코디");
 
     color[0].style.backgroundColor = "blue";
 
   }else if(filter ==="가을"){
-    $(".home-content span").text("가을 옷장");
+    $(".home-content span").text("가을 코디");
 
     color[0].style.backgroundColor = "brown";
 
   }else if(filter ==="겨울"){
-    $(".home-content span").text("겨울 옷장");
+    $(".home-content span").text("겨울 코디");
 
     color[0].style.backgroundColor = "white";
 
-  }
-  spec = body[i].getElementsByClassName("card-closet-spec");
+  }else{break;}
+  spec = item[i].getElementsByClassName("card-closet-spec");
+
   
   if(spec[0].innerHTML===filter){ // card-spec클래스의 태그의 value값 === btn클래스의 사용자 선택한 버튼의 value값
    
     item[i].style.display = "flex"; //card클래스 보여줌
   
-  }else{
+  }
+  else{
     item[i].style.display = "none";
   }
+
+ 
+
+
 }
 }
 }))
 
 }
 
+function codyspec() {
+
+var boo, name, item, i,a,body, spec;
+items = document.getElementsByClassName("catebtn");
+button = document.querySelectorAll('.catebtn ')
+item = document.getElementsByClassName("boxtotal");
+body = document.getElementsByClassName("card-body");
+color = document.getElementsByClassName("home-section");
+name = document.getElementsByClassName("text");
+
+
+button.forEach(a=>a.addEventListener('click',(e)=>{ // foreach문은 배열객체를 돌리는 문인데 getElementsByClassName으로 하면은
+  e.preventDefault()                                // 타입이HTMLCollection이라고나와서 해결법 = Array.from().foreach 를 사용하던가 
+        const filter = e.target.value               // querySelectorAll()을 사용하면 된다.
+        console.log(button);
+        console.log(items);    
+for(i=0;i<item.length;i++){
+  codyspec = item[i].getElementsByClassName("card-closet-codyspec");
+
+  
+  if(codyspec[0].innerHTML===filter){ // card-spec클래스의 태그의 value값 === btn클래스의 사용자 선택한 버튼의 value값
+   
+    item[i].style.display = "flex"; //card클래스 보여줌
+  
+  }
+  else{
+    item[i].style.display = "none";
+  }
+}
+}))
+}
+
+
 
 </script>
 <script src="http://code.jquery.com/jquery-latest.js"></script> 
 
 </body>
+<script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
+<script>
+      var sf = new Snowflakes();
+
+</script> 
 </html>

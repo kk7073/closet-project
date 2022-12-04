@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<!-- Designined by CodingLab | www.youtube.com/codinglabyt -->
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <title> Drop Down Sidebar Menu | CodingLab </title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    <!-- Boxiocns CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" 
+    crossorigin="anonymous"></script>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   </head>
+   <style>
+    h2{
+      border-bottom: 2px solid
+    }
+.scrolling-short{
+  max-width: 1750px;
+  display: flex;
+  overflow-x:auto;
+  
+  }
+  .scrolling-pants{
+  max-width: 1350px;
+  display: flex;
+  overflow-x:auto;
+  
+  }
+  .scrolling-shoes{
+  max-width: 1350px;
+  display: flex;
+  overflow-x:auto;
+  
+  }
+  .scrolling-short::-webkit-scrollbar {
+    width: 10px;
+  }
+  .scrolling-short::-webkit-scrollbar-thumb {
+    background-color: #7b7c7e;
+    border-radius: 10px;
+    background-clip: padding-box;
+    border: 2px solid transparent;
+  }
+  .scrolling-short::-webkit-scrollbar-track {
+    background-color: rgb(228, 222, 222);
+    border-radius: 10px;
+    box-shadow: inset 0px 0px 5px white;
+  }
+    .home-section{
+    }
+    .dropdown{
+      position: fixed;
+      bottom :17px;
+      right:60px
+    }
+   </style>
+<body>
+  <div class="sidebar close">
+    <div class="logo-details">
+      <i class='bx bx-menu' ></i>
+
+      <span class="logo_name">CodingLab</span>
+    </div>
+    <ul class="nav-links">
+      <li>
+        <div class="iocn-link">
+          <a href="/login">
+            <i class='bx bx-closet'></i>
+            <span class="link_name">옷장</span>
+          </a>
+        </div>
+        
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="/codyregister">
+            <i class='bx bx-body' ></i>
+            <span class="link_name">코디</span>
+          </a>
+        </div>
+     
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bx-group' ></i>
+            <span class="link_name">팔로잉</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">팔로잉</a></li>
+          <li><a href="#">최범준</a></li>
+          <li><a href="#">정유민</a></li>
+          <li><a href="#">오승민</a></li>
+        </ul>
+      </li>
+      <li>
+        <div class="iocn-link">
+          <a href="#">
+            <i class='bx bxs-plus-square' ></i>
+            <span class="link_name">추가</span>
+          </a>
+          <i class='bx bxs-chevron-down arrow' ></i>
+        </div>
+        <ul class="sub-menu">
+          <li><a class="link_name" href="#">추가</a></li>
+          <li><a href="#">친구추가</a></li>
+          <li><a href="http://localhost:3000/closeadd">옷장추가</a></li>
+          <li><a href="#">코디추가</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-store' ></i>
+          <span class="link_name">거래</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">거래</a></li>
+        </ul>
+      </li>     
+      <li>
+        <a href="#">
+          <i class='bx bx-cog' ></i>
+          <span class="link_name">설정</span>
+        </a>
+        <ul class="sub-menu blank">
+          <li><a class="link_name" href="#">설정</a></li>
+        </ul>
+      </li>
+      <li>
+    <div class="profile-details">
+      <div class="profile-content">
+      </div>
+      <div class="name-job">
+        <div class="profile_name"></div>
+
+        <div class="job">Web Desginer</div>
+      </div>          
+
+    </div>
+  </li>
+</ul>
+  </div>
+
+  <section class="home-section">
+    <div class="sectiontop">
+      <span class="close_count">옷 개수: </span>
+      <span class="close_count">코디 개수:</span>
+      <span class="close_count">*도움말</span>
+      <span class="close_count">*마이 쇼핑</span>
+      <span class="user_name"></span> 
+
+      <a class="logout" href="/logout">로그아웃</a>
+
+    </div>
+    <div class="secondtop">
+      <span class="logo">옷짱.</span> 
+
+      <select value="2022년" name ='YEAR' title ="연도" class="select_year" style="margin-bottom:20px;">
+        <option value="2022년">2022년</option>
+        <option value="2021년">2021년</option>
+        <option value="2020년">2020년</option>
+        <option value="2019년">2019년</option>
+      </select>
+   </div>
+   <div class="thirdtop">
+
+  </div>
+ 
+    <div style ='margin-top:0px; border-bottom: 2px solid rgb(170, 167, 167); width:1900px;'></div>
+    <div class="home-content">
+
+      <span class="text">상품 등록</span>  
+      
+    </div>
+    <div class="form_design">
+
+    <form action="/product" method="POST">
+      <div class ="product_all">
+<div>상품이미지</div><img src="<%= oneimage %>" onerror="this.style.display='none'" style="margin-left:30px; margin-bottom: 30px;" class="card-img-top" alt="...">
+<img src="<%= image[0].shimage %>" onerror="this.style.display='none'" style="margin-left:30px; margin-bottom: 30px;" class="card-img-top" alt="...">
+<img src="<%= image[0].pimage %>" onerror="this.style.display='none'" style="margin-left:30px; margin-bottom: 30px;" class="card-img-top" alt="...">
+<img src="<%= image[0].simage %>" onerror="this.style.display='none'" style="margin-left:30px; margin-bottom: 30px;" class="card-img-top" alt="...">
+<img src="<%= image[0].ovimage %>" onerror="this.style.display='none'" style="margin-left:30px; margin-bottom: 30px;" class="card-img-top" alt="...">
+<img src="<%= image[0].image %>" onerror="this.style.display='none'" style="margin-left:30px; margin-bottom: 30px;" class="card-img-top" alt="...">
+
+<input type='text' value="<%= oneimage %>" name="oneimage" class='input_search' style="margin-left:100px;" />
+<input type='text' value="<%= image[0].shimage %>" name="image" class='input_search' style="margin-left:100px;" />
+<input type='text' value="<%= image[0].pimage %>" name="image2" class='input_search' style="margin-left:100px;" />
+<input type='text' value="<%= image[0].simage %>" name="image3" class='input_search' style="margin-left:100px;" />
+<input type='text' value="<%= image[0].ovimage %>" name="image4" class='input_search' style="margin-left:100px;" />
+<input type='text' value="<%= image[0].image %>" name="image5" class='input_search' style="margin-left:100px;" />
+
+
+    </div>
+    <div class ="product_all">
+<div>제목</div>
+<input type='text' name="title" class='input_search' style="margin-left:100px;" placeholder="제품 제목을 입력하세요" required/>
+    </div>
+    <div class ="product_all">
+<div>거래지역</div>
+<input type='text' name="region" class='input_search' style="margin-left:70px;" placeholder="제품 제목을 입력하세요" required/>
+    </div>
+    
+    <div class ="product_all">
+<span>가격</span> 
+<input type='text' name="price" class='input_search' style="margin-left:100px;" placeholder="숫자만 입력하세요." required/>
+<span>원</span>
+    </div>
+    <div class ="product_all">
+      <span>설명</span> 
+      <input type='text' name="description" class='input_search' style="margin-left:100px;" placeholder="구매자에게 필요한 정보를 꼭 입력해주세요.." required/>
+    </div>
+    <div class ="product_all">
+      <p>주의사항: 거래금지품목은 등록시 계정이 삭제될수 있습니다!</p>
+      <button type="submit" style="margin-left:520px;">등록 완료</button>
+    </div>  
+  </form>
+</div>
+  </section>
+
+  <script src="script.js"></script>
+<script>
+  function start() {
+
+var boo, name, item, i,b,body, spec;
+items = document.getElementsByClassName("catebtn");
+button = document.querySelectorAll('.catebtn ')
+item = document.getElementsByClassName("card");
+body = document.getElementsByClassName("card-body");
+
+button.forEach(b=>b.addEventListener('click',(e)=>{ // foreach문은 배열객체를 돌리는 문인데 getElementsByClassName으로 하면은
+  e.preventDefault()                                // 타입이HTMLCollection이라고나와서 해결법 = Array.from().foreach 를 사용하던가 
+        const filter = e.target.value               // querySelectorAll()을 사용하면 된다.
+        console.log(button);
+        console.log(items);                                          
+        //color[0].style.backgroundColor = "#E4E9F7";
+
+
+for(i=0;i<item.length;i++){
+if(filter==='전체'){
+
+  item[i].style.display = "flex";
+}else{
+  spec = body[i].getElementsByClassName("card-spec");
+  if(spec[0].innerHTML===filter){ // card-spec클래스의 태그의 value값 === btn클래스의 사용자 선택한 버튼의 value값
+    
+    item[i].style.display = "flex"; //card클래스 보여줌
+  
+  }else{
+    item[i].style.display = "none";
+  }
+}
+}
+}))
+
+}
+
+function starts() {
+
+var boo, name, item, i,b,body, spec;
+button = document.querySelectorAll('.catebtn ');
+item = document.getElementsByClassName("card");
+body = document.getElementsByClassName("card-body");
+color = document.getElementsByClassName("home-section");
+
+
+button.forEach(b=>b.addEventListener('click',(e)=>{ // foreach문은 배열객체를 돌리는 문인데 getElementsByClassName으로 하면은
+  e.preventDefault()                                // 타입이HTMLCollection이라고나와서 해결법 = Array.from().foreach 를 사용하던가 
+        const filter = e.target.value               // querySelectorAll()을 사용하면 된다.
+
+for(i=0;i<item.length;i++){
+if(filter==='전체'){
+  $(".home-content span").text("전체 옷장");
+
+  color[0].style.backgroundColor = "#E4E9F7";
+
+  item[i].style.display = "flex";
+}else{ 
+  if(filter ==="봄"){
+    $(".home-content span").text("봄 옷장");
+
+    color[0].style.backgroundColor = "pink";
+
+  }else if(filter ==="여름"){
+    $(".home-content span").text("여름 옷장");
+
+    color[0].style.backgroundColor = "blue";
+
+  }else if(filter ==="가을"){
+    $(".home-content span").text("가을 옷장");
+
+    color[0].style.backgroundColor = "brown";
+
+  }else if(filter ==="겨울"){
+    $(".home-content span").text("겨울 옷장");
+
+    color[0].style.backgroundColor = "white";
+
+  }
+  spec = body[i].getElementsByClassName("card-closet-spec");
+  
+  if(spec[0].innerHTML===filter){ // card-closet-spec클래스의 태그의 value값 === btn클래스의 사용자 선택한 버튼의 value값
+   
+    item[i].style.display = "flex"; //card클래스 보여줌
+  
+  }else{
+    item[i].style.display = "none";
+  }
+}
+}
+}))
+
+}
+
+
+</script>
+<script src="http://code.jquery.com/jquery-latest.js"></script> 
+
+</body>
+<script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
+<script>
+      var sf = new Snowflakes();
+
+</script> 
+</html>
