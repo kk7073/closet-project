@@ -23,6 +23,7 @@
 form .txt_field{
   position: relative;
   margin: 30px 0;
+  width:420px;
 }
 .input_name{
   border-radius: 10px;
@@ -33,7 +34,6 @@ form .txt_field{
   font-size: 16px;
   border: none;
   outline: none;
-
 }
 .home-section form{
   padding: 0 40px;
@@ -44,7 +44,7 @@ form .txt_field{
   width:400px;
 }
 .add_made{
-  width: 200px;
+  width: 420px;
   height:100px;
   border-radius: 10px;
   background-color: #6258e2;
@@ -77,43 +77,27 @@ form .txt_field{
 <body>
   <div class="sidebar close">
     <div class="logo-details">
-      <i class='bx bxl-c-plus-plus'></i>
-      <span class="logo_name">CodingLab</span>
+      <i class='bx bx-menu' ></i>
+      <span class="logo_name">옷짱</span>
     </div>
     <ul class="nav-links">
       <li>
         <div class="iocn-link">
-          <a href="#">
+          <a href="/login">
             <i class='bx bx-closet'></i>
             <span class="link_name">옷장</span>
           </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
         </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">옷장</a></li>
-          <li><a href="http://localhost:3000/index">전체옷장</a></li>
-          <li><a href="http://localhost:3000/spring">봄옷장</a></li>
-          <li><a href="http://localhost:3000/summer">여름옷장</a></li>
-          <li><a href="http://localhost:3000/fall">가을옷장</a></li>
-          <li><a href="http://localhost:3000/winter">겨울옷장</a></li>
-        </ul>
+      
       </li>
       <li>
         <div class="iocn-link">
-          <a href="#">
+          <a href="/codyregister">
             <i class='bx bx-body' ></i>
             <span class="link_name">코디</span>
           </a>
-          <i class='bx bxs-chevron-down arrow' ></i>
         </div>
-        <ul class="sub-menu">
-          <li><a class="link_name" href="#">코디</a></li>
-          <li><a href="#">전체코디</a></li>
-          <li><a href="#">봄코디</a></li>
-          <li><a href="#">여름코디</a></li>
-          <li><a href="#">가을코디</a></li>
-          <li><a href="#">겨울코디</a></li>
-        </ul>
+       
       </li>
       <li>
         <div class="iocn-link">
@@ -178,14 +162,21 @@ form .txt_field{
   </div>
   <section class="home-section">
     <div class="home-content">
-      <i class='bx bx-menu' ></i>
       <span class="text">옷 등록</span>  
     </div>
     <div class="form_design">
     <form action="/" method="POST" enctype="multipart/form-data">
         <span class="add_title">옷 등록하기</span>
         <div class="txt_field">
-          <input class="hidden_id" name="userid" type="text" value="<%=user %>"required/>
+          <input name="testimage" onchange="readURL(this)" type="file" required/>
+          <img id="preview" style ="width:420px;justify-content: center;
+          align-items: center;
+          border-radius: 5px;
+          transition: 0.4s; height:420px;"/>
+          <span></span>      
+        </div>
+        <div class="txt_field">
+          <input style="display:none;" name="userid" type="text" value="<%=user %>"required/>
           <span></span>
           <label></label>
         </div>
@@ -195,25 +186,48 @@ form .txt_field{
         <label>제품명</label>
       </div>
       <div class="txt_field">
-        <input class="input_name" name="image" type="text" required/>
+        <input class="input_name" name="size" type="text" required/>
         <span></span>
         <label>사이즈</label>
       </div>
       <div class="txt_field">
-        <input class="input_pw" name="spec" type="text" required/>
-        <label>옷 분류</label>
-        <span></span>       
+        <input style="width:400px;" class="input_name" name="price" type="text" required/>
+        <label>가격</label>
+        <span>원</span>
+
       </div>
       <div class="txt_field">
-        <input class="input_name" name="closet_spec" type="text" required/>
-        <label>옷장 종류 </label>
-        <span></span>      
+        <span>옷 분류: </span> 
+                <select name = 'spec'>
+          <option value="상의">상의</option>
+          <option value="하의">하의</option>
+          <option value="아우터">아우터</option>
+          <option value="신발">신발</option>
+          <option value="기타">기타</option>
+          </select>
+        <span>옷장 분류: </span> 
+        <select name = 'closet_spec'>
+          <option value="전체">전체</option>
+          <option value="봄">봄</option>
+          <option value="여름">여름</option>
+          <option value="가을">가을</option>
+          <option value="겨울">겨울</option>
+          </select>
+          <span>세탁방법: </span>
+                <select name = 'dry'>
+          <option value="잘모름">잘모름</option>
+          <option value="물세탁">물세탁</option>
+          <option value="드라이클리닝">드라이클리닝</option>
+          <option value="특별세탁">특별세탁</option>
+          <option value="손빨래">손빨래</option>
+          </select>
       </div>
       <div class="txt_field">
-        <input name="testimage" type="file" required/>
-        <label>이미지 파일</label>
+ 
+       
         <span></span>      
       </div>
+    
       <div>
         <button type="submit" class="add_made">등록 완료</button>
       </div>
@@ -224,4 +238,9 @@ form .txt_field{
   <script src="script.js"></script>
 
 </body>
+<script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
+<script>
+      var sf = new Snowflakes();
+
+</script> 
 </html>

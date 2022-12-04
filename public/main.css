@@ -7,6 +7,28 @@
   font-family: 'Pretendard','Malgun Gothic', sans-serif;
 }
 @import url('https://fonts.googleapis.com/css2?family=Black+And+White+Picture&family=Black+Han+Sans&family=Do+Hyeon&family=Dongle&family=Gothic+A1&family=Gowun+Dodum&family=IBM+Plex+Sans+KR&family=Jua&family=Nanum+Gothic&family=Noto+Sans+KR&family=Stylish&family=Sunflower:wght@500&display=swap');
+
+@font-face {
+  font-family: 'GangwonEduPowerExtraBoldA';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/GangwonEduPowerExtraBoldA.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'NanumSquareNeo-Variable';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_11-01@1.0/NanumSquareNeo-Variable.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Tenada';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2210-2@1.0/Tenada.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+*{
+  font-family: 'NanumSquareNeo-Variable';
+}
 body{
   overflow: hidden;
 }
@@ -223,7 +245,6 @@ section{
   left: 260px;
   width: calc(100% - 260px);
   transition: all 0.5s ease;
-  padding: 12px;
   
 }
 .sidebar.close ~ .home-section{
@@ -239,12 +260,15 @@ section{
 .home-section .home-content .text{
   color: #11101d;
   font-size: 35px;
+  margin-left: 10px;
+  margin-top:10px;
 }
 .home-section .home-content .bx-menu{
   cursor: pointer;
   margin-right: 10px;
 }
 .home-section .home-content .text{
+  font-family: 'NanumSquareNeo-Variable';
   font-size: 26px;
   font-weight: 600;
 }
@@ -263,13 +287,14 @@ margin-left:50px;
 
 }
 .close_card{
-width:180px;
+width:204.5px;
 height:300px;
 background-color: white;
 margin-right:24px;
 margin-bottom:20px;
 border: 1px solid rgb(170,170,170);
-border-radius: 12px;
+margin: 10px .5em;
+box-shadow: 2px 6px 8px 0 rgba(22,22,26,0.18);
 }
 .close_img{
   width: 100%;
@@ -294,11 +319,23 @@ font-style: ;
   width:202px;
   height:200px;
 }
+.card-img-cody{
+  width:134px;
+  height:110px;
+}
 .card{
   min-width:202px;
   min-height: 250px;
   margin: 10px .5em;
   box-shadow: 2px 6px 8px 0 rgba(22,22,26,0.18);
+  border-radius: 5px;
+}
+.card-title{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+    font-family: 'GangwonEduPowerExtraBoldA';
+
 }
 .card-text{
 display: none;
@@ -309,6 +346,9 @@ display: none;
 .card-closet-spec{
   display: none;
   }
+  .card-closet-codyspec{
+    display: none;
+    }
 .btn-primary{
   display: none;
 
@@ -325,16 +365,15 @@ display: none;
 }
 
   .category{
-    
+    font-family: 'NanumSquareNeo-Variable';
     margin-top: 30px;
     font-size:3ch;
   }
   .catebtn{
-    display: inline-block;
     padding: 10px 20px;
     border-radius: 15px;
-    font-family: "Black And White Picture", sans-serif; 
-      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    font-family: 'NanumSquareNeo-Variable';
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     text-decoration: none;
     font-weight: 600;
     transition: 0.25s;
@@ -344,6 +383,98 @@ display: none;
     letter-spacing: 2px;
     transform: scale(1.2);
     cursor: pointer;
+}
+.boxtotal {
+      
+  display: flex;
+  bottom :17px;
+  right:60px;
+
+  width: 290px;
+  height: 460px;
+  margin: 10px;
+  padding: 10px;
+  border: solid 2px rgb(161, 156, 156);
+  float: left;
+}
+.dropdown{
+  position: fixed;
+  bottom :17px;
+  right:60px
+}
+.boxtotal:hover{
+  border: solid 2px red;
+}
+.sectiontop{
+
+}
+.close_count{
+  margin-left:10px;
+  font-family: 'GangwonEduPowerExtraBoldA';
+}
+.select_year {
+  text-align: center;
+
+  font-size:25px;
+  margin-left: 600px;
+  margin-top:10px;
+  width: 300px;
+  padding: .2em;
+  font-family: 'GangwonEduPowerExtraBoldA';
+  background: url(https://farm1.staticflickr.com/379/19928272501_4ef877c265_t.jpg) no-repeat 95% 50%;  
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  border: 2px solid #999;
+  border-radius: 20px;
+}
+.input_search{
+  font-size:19px;
+width:500px;
+height:40px;
+margin-left:650px;
+margin-bottom: 20px;
+font-family: 'NanumSquareNeo-Variable';
+
+}
+.logout{
+  font-family: 'NanumSquareNeo-Variable';
+margin-top:30px;
+}
+.logo{
+color: brown;
+  font-size:50px;
+  margin-left:50px;
+  font-family: 'Tenada';
+
+}
+.user_name{
+  margin-left:1300px;
+  font-size: 15px;
+  font-family: 'GangwonEduPowerExtraBoldA';
+
+}
+.buttongroup{
+  margin-top:20px;
+  margin-left:50px;
+}
+.product_all{
+  margin-left:400px;
+  display:flex;
+  margin-top:60px;
+  border-bottom: 1px solid black;
+  width: 55%;
+}
+.product_container{
+  display:flex;
+}
+.product_content{
+  display:flex;
+  flex-direction: column;
+}
+.product_name{
+  margin-top:30px;
+  
 }
 
 @media screen and (max-width: 400px){

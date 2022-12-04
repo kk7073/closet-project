@@ -38,7 +38,7 @@ app.use(session({
 const con = mysql.createConnection({
    host: 'localhost',
    user: 'root',
-   password: '@j231522',
+   password: 'gkackdqja123!',
    database: 'closet',
    multipleStatements: true
  });
@@ -84,7 +84,7 @@ app.get('/login', function (req, res){
 
 	con.query(sql+sql2+sql3+sql4+sql5,[id,id,id,id,id],function (err, results, fields) {  
 	if (req.session.isLogined==true) {
-		res.render('spring',{short : results[0],pants : results[1],shoes : results[2],etc:results[3],overcoat: results[4], name: req.session.id });
+		res.render('spring',{short : results[0],pants : results[1],shoes : results[2],etc:results[3],overcoat: results[4], name: req.session.uid });
 	}
 	else{
 		res.render('login');
@@ -121,7 +121,7 @@ app.post('/login', (req, res) => {
 					req.session.isLogined=true;
                     console.log(req.session.uid);
 					req.session.save(function(){
-						res.render('spring',{pants : rows[1],short : rows[2],shoes : rows[3],etc: rows[4],overcoat:rows[5], name : rows[0]});
+						res.render('spring',{pants : rows[1],short : rows[2],shoes : rows[3],etc: rows[4],overcoat:rows[5], name :req.session.uid});
 					})
 					
 
@@ -164,17 +164,120 @@ app.get('/select', (req, res) => {
 	res.render('select',{user: req.query.user, pants : results[0], shorts : results[1], shoes: results[2], etc: results[3], overcoat: results[4]});
 	});
 });
+app.get('/pictureselect', (req, res) => {
+	console.log(req.session.uid)
+	const id = req.session.uid;
+	const sql = "select * from pants where puserid =?;";
+	const sql2 = "select * from shirt where shuserid =?;";
+	const sql3 = "select * from shoes where suserid =?;";
+	const sql4 = "select * from etc where userid =?;";
+    const sql5 = "select * from overcoat where ovuserid =?;";
 
-app.get('/codyregister' , (req,res) => {
-	const sql = "SELECT cody.*,shirt.*,pants.*,shoes.*,etc.*,overcoat.* FROM closet.cody left outer join shirt on cody.shirt= shirt.id left outer join pants on cody.pants=pants.id left outer join shoes on cody.shoes=shoes.id left outer join etc on cody.etc=etc.id left outer join overcoat on cody.overcoat=overcoat.id;";
-	con.query(sql, function(err, result,  fields){
-		if (err) throw err;
-	console.log(result);
-	res.render('cody',{cody: result});
+	con.query(sql+sql2+sql3+sql4+sql5,[id,id,id,id,id],function (err, results, fields) {  
+	if (err) throw err;	
+	res.render('pictureselect',{user: req.query.user, pants : results[0], shorts : results[1], shoes: results[2], etc: results[3], overcoat: results[4]});
 	});
 });
 
-app.post('/codyregister', (req,res) => {
+app.get('/codyselect' , (req,res) => {
+	const codyid= req.query.codyid;
+	const sql = "SELECT cody.*,shirt.*,pants.*,shoes.*,etc.*,overcoat.* FROM closet.cody left outer join shirt on cody.shirt= shirt.id left outer join pants on cody.pants=pants.id left outer join shoes on cody.shoes=shoes.id left outer join etc on cody.etc=etc.id left outer join overcoat on cody.overcoat=overcoat.id where cody_id =?;";
+
+	con.query(sql,[codyid],function(err, result,  fields){
+		if (err) throw err;
+	console.log(result);
+	res.render('codyselect',{name:req.session.uid, cody: result});
+	});
+});
+
+app.get('/codyregister' , (req,res) => {
+	const sql = "SELECT cody.*,shirt.*,pants.*,shoes.*,etc.*,overcoat.* FROM closet.cody left outer join shirt on cody.shirt= shirt.id left outer join pants on cody.pants=pants.id left outer join shoes on cody.shoes=shoes.id left outer join etc on cody.etc=etc.id left outer join overcoat on cody.overcoat=overcoat.id where codyuserid =? and codyimage is null;";
+	const sql2 = "SELECT cody.*,shirt.*,pants.*,shoes.*,etc.*,overcoat.* FROM closet.cody left outer join shirt on cody.shirt= shirt.id left outer join pants on cody.pants=pants.id left outer join shoes on cody.shoes=shoes.id left outer join etc on cody.etc=etc.id left outer join overcoat on cody.overcoat=overcoat.id where codyuserid =? and codyimage is not null;";
+
+	con.query(sql+sql2,[req.session.uid,req.session.uid],function(err, result,  fields){
+		if (err) throw err;
+	console.log(result);
+	res.render('cody',{name:req.session.uid,cody: result[0], codynotnull: result[1]});
+	});
+});
+app.get('/productdetail' , (req,res) => {
+	const id= req.query.productid;
+	const sql = "SELECT * from product where product_id=?;";
+
+	con.query(sql,[id],function(err, result,  fields){
+		if (err) throw err;
+	res.render('productdetail',{product:result});
+	});
+});
+app.get('/productselect' , (req,res) => {
+	const sql = "SELECT * from product;";
+
+	con.query(sql,function(err, result,  fields){
+		if (err) throw err;
+	console.log(result);
+	res.render('productselect',{product:result});
+	});
+});
+
+app.post('/product' , (req,res) => {
+	const title=req.body.title;
+	const region=req.body.region;
+	const price= req.body.price;
+	const description = req.body.description;
+	const oneimage = req.body.oneimage;
+	const image = req.body.image;
+	const image2 = req.body.image2;
+	const image3 = req.body.image3;
+	const image4 = req.body.image4;
+	const image5 = req.body.image5;
+ console.log(oneimage);
+ console.log(image2);
+ console.log(image3);
+ console.log(image4);
+ console.log(image5);
+console.log(title);
+	const sql = "INSERT INTO product (name, region, price,description,product_img,product_img2,product_img3,product_img4,product_img5,product_oneimage) VALUES(?,?,?,?,?,?,?,?,?,?);";
+	con.query(sql,[title,region,price,description,image,image2,image3,image4,image5,oneimage],function(err, result, fields){
+		if (err) throw err;
+		res.redirect('/productselect');
+	});
+});
+app.get('/product' , (req,res) => {
+	const ad='ds';
+	const dsd=''
+	const sql = "SELECT shimage,pimage,simage,ovimage,image FROM closet.cody left outer join shirt on cody.shirt= shirt.id left outer join pants on cody.pants=pants.id left outer join shoes on cody.shoes=shoes.id left outer join etc on cody.etc=etc.id left outer join overcoat on cody.overcoat=overcoat.id where cody_id =?;";
+if(req.query.name=='여러개'){
+	con.query(sql,[req.query.spec],function(err, result, fields){
+		if (err) throw err;
+	res.render('product',{image: result,oneimage:dsd});
+	})
+}else{
+	res.render('product',{image:ad, oneimage: req.query.spec});
+}
+});
+
+app.post('/codypicregister', upload.single('codyimage'),(req,res) => {
+	console.log(req.file);
+	const codyimage = req.file.filename;
+	const shirt = req.body.shirt;
+	const pants = req.body.pants;
+	const shoes = req.body.shoes;
+	const codyname = req.body.codyname;
+	const codyspec = req.body.codyspec;
+	const seasonspec = req.body.seasonspec;
+	const overcoat = req.body.overcoat;
+	const etc = req.body.etc;
+	const codyuserid = req.session.uid;
+console.log(req.session.uid);
+
+	const sql =  "INSERT INTO cody (codyname,shirt, pants,shoes,overcoat,etc,codyspec,seasonspec,codyuserid,codyimage) VALUES(?,?,?,?,?,?,?,?,?,?);";
+	con.query(sql,[codyname,shirt, pants,shoes,overcoat,etc,codyspec,seasonspec,codyuserid,codyimage],function(err, result, fields){
+		if (err) throw err;
+		res.redirect('/codyregister');
+	});
+});
+app.post('/codyregister', upload.single('codyimage'),(req,res) => {
+	console.log(req.file);
 	const shirt = req.body.shirt;
 	const pants = req.body.pants;
 	const shoes = req.body.shoes;
@@ -197,37 +300,39 @@ app.post('/',upload.single('testimage'), (req, res) => {
 	console.log(req.file.filename);
 	const imagetest = req.file.filename;
 	const testnum = req.body.testnum;
-	const image = req.body.image;
 	const spec = req.body.spec;
 	const closet = req.body.closet_spec;
+	const size = req.body.size;
+	const price = req.body.price;
+	const dry = req.body.dry;
 	const userid = req.session.uid;
 if(spec=='하의'){
-	const sql = "INSERT INTO pants (pname, psize, pcloset_spec,pimage,puserid) VALUES(?,?,?,?,?);";
-	con.query(sql,[testnum,image,closet,imagetest,userid],function(err, result, fields){
+	const sql = "INSERT INTO pants (pname, psize, pcloset_spec,pimage,puserid,pprice,pdry) VALUES(?,?,?,?,?,?,?);";
+	con.query(sql,[testnum,size,closet,imagetest,userid,price,dry],function(err, result, fields){
 		if (err) throw err;
 		res.redirect('/login');
 	});
 }else if(spec=='상의'){
-	const sql = "INSERT INTO shirt (shname, shsize, shcloset_spec,shimage,shuserid) VALUES(?,?,?,?,?);";
-	con.query(sql,[testnum,image,closet,imagetest,userid],function(err, result, fields){
+	const sql = "INSERT INTO shirt (shname, shsize, shcloset_spec,shimage,shuserid,shprice,shdry) VALUES(?,?,?,?,?,?,?);";
+	con.query(sql,[testnum,size,closet,imagetest,userid,price,dry],function(err, result, fields){
 		if (err) throw err;
 		res.redirect('/login');
 	});}
 	else if(spec=='신발'){
-		const sql = "INSERT INTO shoes (sname, ssize, scloset_spec,simage,suserid) VALUES(?,?,?,?,?);";
-		con.query(sql,[testnum,image,closet,imagetest,userid],function(err, result, fields){
+		const sql = "INSERT INTO shoes (sname, ssize, scloset_spec,simage,suserid,sprice,sdry) VALUES(?,?,?,?,?,?,?);";
+		con.query(sql,[testnum,size,closet,imagetest,userid,price,dry],function(err, result, fields){
 			if (err) throw err;
 			res.redirect('/login');
 		});}
 		else if(spec=='아우터'){
-			const sql =  "INSERT INTO overcoat (ovname, ovsize, ovcloset_spec,ovimage,ovuserid) VALUES(?,?,?,?,?);";
-			con.query(sql,[testnum,image,closet,imagetest,userid],function(err, result, fields){
+			const sql =  "INSERT INTO overcoat (ovname, ovsize, ovcloset_spec,ovimage,ovuserid,ovprice,ovdry) VALUES(?,?,?,?,?,?,?);";
+			con.query(sql,[testnum,size,closet,imagetest,userid,price,dry],function(err, result, fields){
 				if (err) throw err;
 				res.redirect('/login');
 			});}
 			else if(spec=='기타'){
-				const sql = "INSERT INTO etc (name, size, closet_spec,image,userid) VALUES(?,?,?,?,?);";
-				con.query(sql,[testnum,image,closet,imagetest,userid],function(err, result, fields){
+				const sql = "INSERT INTO etc (name, size, closet_spec,image,userid,price,dry) VALUES(?,?,?,?,?,?,?);";
+				con.query(sql,[testnum,size,closet,imagetest,userid,price,dry],function(err, result, fields){
 					if (err) throw err;
 					res.redirect('/login');
 				});}
