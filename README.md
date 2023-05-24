@@ -8,7 +8,7 @@
 
  옷장속에 있는 의류 정보를 기록하여 편리한 옷 관리와 원하는 옷을 조합한 코디 관리 기능을 제공하며 또한 필요 없는 옷들을 판매할 수 있도록 중고거래도 할 수 있는 웹사이트
 <br><br><br>
-# 🐳 프로젝트 주요 기능
+## 📌 프로젝트 주요 기능
 ### 1️⃣ 옷장에 있는 내 옷 등록하기
 
 마음에 드는 옷을 내 옷장 웹사이트에 등록해보세요!
@@ -94,8 +94,8 @@
 <img width=32.8% alt="개인 판매 등록창" src="https://github.com/hcb1999/timecloset/assets/79966891/97d155cf-aaca-4326-b3d6-ef09b6e1546c">
 <img width=32.8% alt="삭제 버튼 클릭시" src="https://github.com/hcb1999/timecloset/assets/79966891/4bffe72a-8a88-452a-bceb-5d397e2504f5">
 </p>
+## 🛠 기술 스택
 <div align='center'>
- ## 🛠 기술 스택
  <p>📖 PlatForm & Language 📖</p>
  </div>
  <div align='center'>
