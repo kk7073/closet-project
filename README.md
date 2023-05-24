@@ -28,14 +28,14 @@
 
 # 🐳 프로젝트 화면
 
-### 로그인,회원가입 화면 
+### 로그인/회원가입 화면
 
 <p>
 	<img width=49.5% alt="로그인" src="https://github.com/hcb1999/timecloset/assets/79966891/3f2d8feb-c6ac-42c8-8d01-cc3bebf965ed">
 	<img width=49.5% alt="회원가입" src="https://github.com/hcb1999/timecloset/assets/79966891/3007feab-b0f5-461e-ab11-e205b5d96af3">
 </p>
 
-**내 옷 상세보기 및 옷 등록 화면**
+### 내 옷 상세보기 및 옷 등록 화면
 
 <p>
 	<img width=24.5% alt="메인화면" src="https://github.com/hcb1999/timecloset/assets/79966891/77eabbe2-24e4-41b5-a0e1-b8bdca764393">
@@ -45,7 +45,7 @@
 
 </p>
 
-**검색 및 필터링 기능**
+### 검색 및 필터링 기능
 
 <p>
 	<img width=49.5% alt="검색시나오는화" src="https://github.com/hcb1999/timecloset/assets/79966891/c227d37b-2fe9-4655-9bed-12c317d8d1b6">
@@ -53,7 +53,7 @@
 
 </p>
 
-**카테고리별 코디 등록 및 상세보기**
+### **카테고리별 코디 등록 및 상세보기**
 
 <p>
 	<img width=32.8% alt="카테고리별코디" src="https://github.com/hcb1999/timecloset/assets/79966891/1976c54a-6ebd-46d7-b814-047bdcabf18a">
@@ -61,7 +61,7 @@
 	<img width=32.8% alt="코디 선택시" src="https://github.com/hcb1999/timecloset/assets/79966891/fa718e23-b6d7-445e-9a73-fb9fcd984fb4">
 </p>
 
-**사진별 코디 등록 및 상세보기**
+### **사진별 코디 등록 및 상세보기**
 
 <p>
 <img width=32.8% alt="사진으로 코디 선택창" src="https://github.com/hcb1999/timecloset/assets/79966891/045a83d5-3961-447c-b226-60e6790947a8">
@@ -69,7 +69,7 @@
 <img width=32.8% alt="사진별 코디 선택시" src="https://github.com/hcb1999/timecloset/assets/79966891/002e2a8f-14e3-4e2b-bae8-631986b7d23e">
 </p>
 
-**옷 상품 중고거래 등록 기능**
+### **옷 상품 중고거래 등록 기능**
 
 <p>
 	<img width=32.8% alt="신발 판매" src="https://github.com/hcb1999/timecloset/assets/79966891/b9a04bcb-976d-4360-9c62-82d179d09c54">
@@ -78,7 +78,7 @@
 	
 </p>
 
-**코디 상품 중고거래 등록 기능**
+### **코디 상품 중고거래 등록 기능**
 
 <p>
 <img width=32.8% alt="코디 선택시" src="https://github.com/hcb1999/timecloset/assets/79966891/fa718e23-b6d7-445e-9a73-fb9fcd984fb4">
@@ -86,7 +86,7 @@
 <img width=32.8% alt="코디판매등록시" src="https://github.com/hcb1999/timecloset/assets/79966891/37624aac-6901-4cee-9911-47dcb2eb7a40">
 </p>
 
-**댓글을 이용한 중고 거래 및 거래 물품 삭제**
+### **댓글을 이용한 중고 거래 및 거래 물품 삭제**
 
 <p>
 <img width=32.8% alt="댓글기능을 이용한 중고거래" src="https://github.com/hcb1999/timecloset/assets/79966891/de03dfcf-a65c-4ec2-b612-daf346c9ab6d">
