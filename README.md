@@ -94,8 +94,9 @@
 <img width=32.8% alt="개인 판매 등록창" src="https://github.com/hcb1999/timecloset/assets/79966891/97d155cf-aaca-4326-b3d6-ef09b6e1546c">
 <img width=32.8% alt="삭제 버튼 클릭시" src="https://github.com/hcb1999/timecloset/assets/79966891/4bffe72a-8a88-452a-bceb-5d397e2504f5">
 </p>
-## 🛠 기술 스택
+
 <div align='center'>
+	<h3>🛠 기술 스택</h3>
  <p>📖 PlatForm & Language 📖</p>
  </div>
  <div align='center'>
