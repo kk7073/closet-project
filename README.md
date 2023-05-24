@@ -25,34 +25,7 @@
 
 다른 사용자와 댓글 기능을 통해 거래를 할수 있어요!
 <br><br><br>
-<div align='center'>
- <h3>⚙️ 기술 스택 ⚙️</h3>
- <p>📖 PlatForm & Language 📖</p>
- </div>
- <div align='center'>
- <img src="https://img.shields.io/badge/JavaScript-ECD53F?style=flat&logo=JavaScript&logoColor=white"/>
- <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white" />
-	<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=white" />
-	<img src="https://img.shields.io/badge/Ejs-1572B6?style=flat&logo=EJS&logoColor=white" />
-	<img src="https://img.shields.io/badge/Express-000000?style=flat&logo=Express&logoColor=white" />
-	<img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=Node.js&logoColor=white" />
-	<img src="https://img.shields.io/badge/BootStrap-7952B3?style=flat&logo=BootStrap&logoColor=white" />
-</div>
-</br>
-</br>
-<div align='center'>
- <p>📖 Tools 📖</p>
- </div>
- <div align='center'>
-	<img src="https://img.shields.io/badge/GITHUB-1572B6?style=flat&logo=GitHub&logoColor=white" />
-	<img src="https://img.shields.io/badge/Visual Studio Code-1572B6?style=flat&logo=Visual Studio Code&logoColor=white" />
-	<img src="https://img.shields.io/badge/MySql-000000?style=flat&logo=MySql&logoColor=white" />
-	</div>
-	 </br>
-</br>
-	 <div align='center'>
-	<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=hcb1999&layout=compact">
-	</div>
+
 
 # 🐳 프로젝트 화면
 
@@ -121,7 +94,34 @@
 <img width=32.8% alt="개인 판매 등록창" src="https://github.com/hcb1999/timecloset/assets/79966891/97d155cf-aaca-4326-b3d6-ef09b6e1546c">
 <img width=32.8% alt="삭제 버튼 클릭시" src="https://github.com/hcb1999/timecloset/assets/79966891/4bffe72a-8a88-452a-bceb-5d397e2504f5">
 </p>
-
+<div align='center'>
+ <h3>⚙️ 기술 스택 ⚙️</h3>
+ <p>📖 PlatForm & Language 📖</p>
+ </div>
+ <div align='center'>
+ <img src="https://img.shields.io/badge/JavaScript-ECD53F?style=flat&logo=JavaScript&logoColor=white"/>
+ <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=HTML5&logoColor=white" />
+	<img src="https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=CSS3&logoColor=white" />
+	<img src="https://img.shields.io/badge/Ejs-1572B6?style=flat&logo=EJS&logoColor=white" />
+	<img src="https://img.shields.io/badge/Express-000000?style=flat&logo=Express&logoColor=white" />
+	<img src="https://img.shields.io/badge/Node.js-339933?style=flat&logo=Node.js&logoColor=white" />
+	<img src="https://img.shields.io/badge/BootStrap-7952B3?style=flat&logo=BootStrap&logoColor=white" />
+</div>
+</br>
+</br>
+<div align='center'>
+ <p>📖 Tools 📖</p>
+ </div>
+ <div align='center'>
+	<img src="https://img.shields.io/badge/GITHUB-1572B6?style=flat&logo=GitHub&logoColor=white" />
+	<img src="https://img.shields.io/badge/Visual Studio Code-1572B6?style=flat&logo=Visual Studio Code&logoColor=white" />
+	<img src="https://img.shields.io/badge/MySql-000000?style=flat&logo=MySql&logoColor=white" />
+	</div>
+	 </br>
+</br>
+	 <div align='center'>
+	<img src="https://github-readme-stats.vercel.app/api/top-langs/?username=hcb1999&layout=compact">
+	</div>
 	
 ## 🕑 작업기간
 2022.09.20 - 2022.11.09 (약 1개월 반)
