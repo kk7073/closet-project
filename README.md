@@ -27,7 +27,7 @@
 <br><br><br>
 
 
-# 🐳 프로젝트 화면
+## 🔍 프로젝트 화면
 
 ### 로그인/회원가입 화면
 
@@ -95,7 +95,7 @@
 <img width=32.8% alt="삭제 버튼 클릭시" src="https://github.com/hcb1999/timecloset/assets/79966891/4bffe72a-8a88-452a-bceb-5d397e2504f5">
 </p>
 <div align='center'>
- <h3>⚙️ 기술 스택 ⚙️</h3>
+ ## 🛠 기술 스택
  <p>📖 PlatForm & Language 📖</p>
  </div>
  <div align='center'>
