@@ -1,5 +1,8 @@
-## 대학교 캡스톤디자인 
+
 <div align='center'>
+
+개인 코디나 옷에 대한 정보를 사용자의 입맛대로 관리할수 있게 하기 위해 만든 프로젝트 입니다.
+# **Closet**
 <img src="https://capsule-render.vercel.app/api?type=wave&color=auto&height=300&section=header&text=Closet%20&fontSize=90" />
 </div>
 <br><br><br>
@@ -96,7 +99,7 @@
 </p>
 
 <div align='center'>
-	<h3>🛠 기술 스택</h3>
+	<h3>🛠 기술 스택 🛠</h3>
  <p>📖 PlatForm & Language 📖</p>
  </div>
  <div align='center'>
