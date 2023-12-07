@@ -71,7 +71,7 @@
                 <span class="link_name">거래</span>
               </a>
               <ul class="sub-menu blank">
-                <li><a class="link_name" href="#">거래</a></li>
+                <li><a class="link_name" href="productselect">거래</a></li>
               </ul>
             </li>     
             <li>
@@ -122,7 +122,7 @@
 
          <div class ='close_list'>
           <div class="close_card">
-            <img src="<%= cody[i].shimage %>" onclick="modalclick()" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <img src="<%= cody[i].shimage %>" onerror="this.parentNode.style.display='none'" onclick="modalclick()" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
             <div class="card-body">
               <p class="card-title"><%= cody[i].shname %></p>
               <p class="card-spec">dsds</p>
@@ -130,7 +130,7 @@
             </div>
           </div>
           <div class="close_card">
-            <img src="<%= cody[i].pimage %>" onclick="modalclick()" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <img src="<%= cody[i].pimage %>" onerror="this.parentNode.style.display='none'" onclick="modalclick()" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
             <div class="card-body">
               <p class="card-title"><%= cody[i].pname %></p>
               <p class="card-spec">dsds</p>
@@ -138,7 +138,7 @@
             </div>
           </div>
           <div class="close_card">
-            <img src="<%= cody[i].simage %>" onclick="modalclick()" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
+            <img src="<%= cody[i].simage %>" onerror="this.parentNode.style.display='none'" onclick="modalclick()" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
             <div class="card-body">
               <p class="card-title"><%= cody[i].sname %></p>
               <p class="card-spec">dsds</p>
@@ -172,9 +172,9 @@
             <p class="card-closet-spec"><%= cody[i].seasonspec %></p>
             <div class = "first_box"style="margin-left:50px; margin-top:25px;">
   
-            <img src="<%= cody[i].shimage %>"style="width: 200px; height: 200px; margin-top:16px;" alt="..." >
-            <img src="<%= cody[i].pimage %>" style="width: 200px; height: 200px; margin-top:10px;" alt="..." >
-            <img src="<%= cody[i].simage %>" style="width: 200px; height: 200px; margin-top:10px;" alt="..." >
+            <img src="<%= cody[i].shimage %>" onerror="this.onerror=null; this.src='no_img.jpg'"; style="width: 200px; height: 200px; margin-top:16px;" alt="..." >
+            <img src="<%= cody[i].pimage %>" onerror="this.onerror=null; this.src='no_img.jpg'";  style="width: 200px; height: 200px; margin-top:10px;" alt="..." >
+            <img src="<%= cody[i].simage %>" onerror="this.onerror=null; this.src='no_img.jpg'"; style="width: 200px; height: 200px; margin-top:10px;" alt="..." >
 
           </div>
           
@@ -187,15 +187,16 @@
           
 
       </div>
-      <div class ="codyname" style="margin-left:70px;"><%= cody[i].codyname %></div>
+      <div class ="codyname" style="font-family: 'GangwonEduPowerExtraBoldA'; margin-left:70px;"><%= cody[i].codyname %></div>
 
-      <div style ='margin-top:30px;margin-left:70px; border-bottom: 2px solid rgb(170, 167, 167); width:250px;'></div>
-      <span style="margin-top:100px; margin-left:70px;">코디에 사용된 상품</span>
-      <button class ="catebtn" style="margin-top:100px; margin-left:700px;"><a href="/product?spec=<%=cody[i].cody_id %>&name=여러개">코디 판매하기</a></button>
+      <div style ='margin-top:30px;margin-left:70px; border-bottom: 2px solid rgb(170, 167, 167); width:650px;'></div>
+          <span style="   font-family: 'GangwonEduPowerExtraBoldA'; margin-left:70px;">코디에 사용된 상품</span>
+          <button class ="catebtn" style=" margin-left:400px;"><a href="/product?spec=<%=cody[i].cody_id %>&name=여러개">코디 판매하기</a></button>
+          <button class ="catebtn"><a  href="/codydelete/<%= cody[i].cody_id %>">삭제</a></button>
 
      <div class ='close_list'>
       <div class="close_card">
-        <img src="<%= cody[i].shimage %>" onclick="modalclick()" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <img src="<%= cody[i].shimage %>" onerror="this.parentNode.style.display='none'" onclick="modalclick()" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
         <div class="card-body">
           <p class="card-title"><%= cody[i].shname %></p>
           <p class="card-spec">dsds</p>
@@ -203,7 +204,7 @@
         </div>
       </div>
       <div class="close_card">
-        <img src="<%= cody[i].pimage %>" onclick="modalclick()" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <img src="<%= cody[i].pimage %>" onerror="this.parentNode.style.display='none'" onclick="modalclick()" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
         <div class="card-body">
           <p class="card-title"><%= cody[i].pname %></p>
           <p class="card-spec">dsds</p>
@@ -211,7 +212,7 @@
         </div>
       </div>
       <div class="close_card">
-        <img src="<%= cody[i].simage %>" onclick="modalclick()" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <img src="<%= cody[i].simage %>" onerror="this.parentNode.style.display='none'" onclick="modalclick()" class="card-img-top" alt="..." data-bs-toggle="modal" data-bs-target="#exampleModal">
         <div class="card-body">
           <p class="card-title"><%= cody[i].sname %></p>
           <p class="card-spec">dsds</p>

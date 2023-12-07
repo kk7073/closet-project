@@ -146,11 +146,11 @@
 
   <section class="home-section">
     <div class="sectiontop">
-      <span class="close_count">옷 개수: </span>
-      <span class="close_count">코디 개수: </span>
+      <span class="close_count">옷 개수: <%=short.length +pants.length+shoes.length+etc.length +overcoat.length%></span>
+      <span class="close_count">코디 개수: <%=codylen.length%></span>
       <span class="close_count">*도움말</span>
       <span class="close_count">*마이 쇼핑</span>
-      <span class="user_name">님 환영합니다</span> 
+      <span class="user_name"><%=name%>님 환영합니다</span> 
 
       <a class="logout" href="/logout">로그아웃</a>
 
@@ -167,11 +167,11 @@
    </div>
    <div class="thirdtop">
 
-    <input class="input_search"  type="text" id="search" onkeyup="filter()" placeholder="찾고싶은 제품명을 검색하세요." />
+    <input class="input_search"  type="text" id="search" onkeyup="codyfilter()" placeholder="찾고싶은 제품명을 검색하세요." />
   </div>
- 
-    <div style ='margin-top:0px; border-bottom: 2px solid rgb(170, 167, 167); width:1900px;'></div>
-    <div class="home-content">
+      <div style ='margin-top:0px; border-bottom: 2px solid rgb(170, 167, 167); width:1900px;'></div>
+
+      <div class="home-content">
 
       <span class="text">중고 상품</span>  
 
@@ -223,16 +223,45 @@
         <div class='product_name'><span>거래지역: <%= product[0].region %></span></div>
         <div style="width:500px; height:170px;" class='product_name'><span>상품내용: <%= product[0].description %></span></div>
         <div class="product_name">
-          <button>찜하기</button>
-          <button>대화하기</button>
-          <button>찜하기</button>
+         <span>작성자: <%= product[0].prouserid %></span>
 
         </div>
       </div>
- 
+
     </div>
+    <div class="card">
+      <form action="/comment" method="POST">
+          <input name="pid" type="hidden" id="boardId" value="<%=pid %>" />
+          <div class="card-header">댓글 달기</dv>
 
+          <div class="card-body">
+              <textarea name="content" id="reply-content" class="form-control" row = "1"></textarea>
+          </div>
+              <button  type="submit" id="btn-reply-save" >등록</button>
+      </form>
+  </div>
+  <br />
+  <div class="card">
+      <div class="card-header">댓글 리스트</dv>
+          <ul id="reply--box" class="list-group">
+            <% for(var i=0; i<comment.length; i++) { %>
+              <li id="reply--1" class="list-group-item d-flex justify-content-between">
+                      <div><%=comment[i].content %></div>
+                      <div class="d-flex">
+                           <% if(product[0].prouserid==comment[i].conuserid){ %>
+                          <div class="font-italic">판매자 :<%=comment[i].conuserid %> &nbsp;</div>
+                           <% }else{ %>
+                            <div class="font-italic">작성자 :<%=comment[i].conuserid %> &nbsp;</div>
 
+                            <% } %>
+
+                          <button class="badge">삭제</button>
+                      </div>
+                  </li>
+             <% } %>
+                </ul>
+      </div>
+.
 
 
   </div>

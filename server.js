@@ -32,7 +32,6 @@ app.use(session({
 	resave: false,
 	saveUninitialized: true,
 	store: sessionstore
-
 }))
 
 const con = mysql.createConnection({
@@ -80,11 +79,12 @@ app.get('/login', function (req, res){
 	const sql3 = "select * from shoes where suserid =?;" ;
 	const sql4 = "select * from etc where userid =?;" ;
 	const sql5 = "select * from overcoat where ovuserid =?;" ;
+	const sql6 = "select * from cody where codyuserid =?;" ;
 
 
-	con.query(sql+sql2+sql3+sql4+sql5,[id,id,id,id,id],function (err, results, fields) {  
+	con.query(sql+sql2+sql3+sql4+sql5+sql6,[id,id,id,id,id,id],function (err, results, fields) {  
 	if (req.session.isLogined==true) {
-		res.render('spring',{short : results[0],pants : results[1],shoes : results[2],etc:results[3],overcoat: results[4], name: req.session.uid });
+		res.render('spring',{short : results[0],pants : results[1],shoes : results[2],etc:results[3],overcoat: results[4],cody:results[5], name: req.session.uid });
 	}
 	else{
 		res.render('login');
@@ -103,6 +103,7 @@ app.post('/login', (req, res) => {
 	const sql5 = "select * from shoes where suserid =?;";
 	const sql6 = "select * from etc where userid =?;";
 	const sql7 = "select * from overcoat where ovuserid =?;";
+	const sql8 = "select * from cody where codyuserid =?;";
 
 
 	con.query(sql,[id],function (err, rows, fields) {  
@@ -110,7 +111,7 @@ app.post('/login', (req, res) => {
 	if (rows.length){
 		if(rows[0].id==id){
 
-			con.query(sql2+sql3+sql4+sql5+sql6+sql7, [pw,id,id,id,id,id], function(err,rows,fields){
+			con.query(sql2+sql3+sql4+sql5+sql6+sql7+sql8, [pw,id,id,id,id,id,id], function(err,rows,fields){
 				if(err){
 					throw err;
 				}
@@ -121,7 +122,7 @@ app.post('/login', (req, res) => {
 					req.session.isLogined=true;
                     console.log(req.session.uid);
 					req.session.save(function(){
-						res.render('spring',{pants : rows[1],short : rows[2],shoes : rows[3],etc: rows[4],overcoat:rows[5], name :req.session.uid});
+						res.render('spring',{pants : rows[1],short : rows[2],shoes : rows[3],etc: rows[4],overcoat:rows[5],cody:rows[6], name :req.session.uid});
 					})
 					
 
@@ -158,10 +159,11 @@ app.get('/select', (req, res) => {
 	const sql3 = "select * from shoes where suserid =?;";
 	const sql4 = "select * from etc where userid =?;";
     const sql5 = "select * from overcoat where ovuserid =?;";
+    const sql6 = "select * from cody where codyuserid =?;";
 
-	con.query(sql+sql2+sql3+sql4+sql5,[id,id,id,id,id],function (err, results, fields) {  
+	con.query(sql+sql2+sql3+sql4+sql5+sql6,[id,id,id,id,id,id],function (err, results, fields) {  
 	if (err) throw err;	
-	res.render('select',{user: req.query.user, pants : results[0], shorts : results[1], shoes: results[2], etc: results[3], overcoat: results[4]});
+	res.render('select',{user: req.query.user,cody:results[5], pants : results[0], shorts : results[1], shoes: results[2], etc: results[3], overcoat: results[4]});
 	});
 });
 app.get('/pictureselect', (req, res) => {
@@ -191,31 +193,61 @@ app.get('/codyselect' , (req,res) => {
 });
 
 app.get('/codyregister' , (req,res) => {
+	const id = req.session.uid;
+
 	const sql = "SELECT cody.*,shirt.*,pants.*,shoes.*,etc.*,overcoat.* FROM closet.cody left outer join shirt on cody.shirt= shirt.id left outer join pants on cody.pants=pants.id left outer join shoes on cody.shoes=shoes.id left outer join etc on cody.etc=etc.id left outer join overcoat on cody.overcoat=overcoat.id where codyuserid =? and codyimage is null;";
 	const sql2 = "SELECT cody.*,shirt.*,pants.*,shoes.*,etc.*,overcoat.* FROM closet.cody left outer join shirt on cody.shirt= shirt.id left outer join pants on cody.pants=pants.id left outer join shoes on cody.shoes=shoes.id left outer join etc on cody.etc=etc.id left outer join overcoat on cody.overcoat=overcoat.id where codyuserid =? and codyimage is not null;";
-
-	con.query(sql+sql2,[req.session.uid,req.session.uid],function(err, result,  fields){
+	const sql3 = "select * from shirt where shuserid =?;" ;
+	const sql4 = "select * from pants where puserid =?;" ;
+	const sql5 = "select * from shoes where suserid =?;" ;
+	const sql6 = "select * from etc where userid =?;" ;
+	const sql7 = "select * from overcoat where ovuserid =?;" ;
+	const sql8 = "select * from cody where codyuserid =?;" ;
+	con.query(sql+sql2+sql3+sql4+sql5+sql6+sql7+sql8,[req.session.uid,req.session.uid,id,id,id,id,id,id],function(err, result,  fields){
 		if (err) throw err;
 	console.log(result);
-	res.render('cody',{name:req.session.uid,cody: result[0], codynotnull: result[1]});
+	res.render('cody',{name:req.session.uid,cody: result[0], codynotnull: result[1],short : result[2], pants : result[3], shoes: result[4], etc: result[5], overcoat: result[6],codylen:result[7]});
 	});
 });
 app.get('/productdetail' , (req,res) => {
 	const id= req.query.productid;
+	const uid = req.session.uid;
 	const sql = "SELECT * from product where product_id=?;";
-
-	con.query(sql,[id],function(err, result,  fields){
+	const sql2 = "SELECT * from comment where product_id=?;";
+	const sql3 = "select * from shirt where shuserid =?;" ;
+	const sql4 = "select * from pants where puserid =?;" ;
+	const sql5 = "select * from shoes where suserid =?;" ;
+	const sql6 = "select * from etc where userid =?;" ;
+	const sql7 = "select * from overcoat where ovuserid =?;" ;
+	const sql8 = "select * from cody where codyuserid =?;" ;
+	con.query(sql+sql2+sql3+sql4+sql5+sql6+sql7+sql8,[id,id,uid,uid,uid,uid,uid,uid],function(err, result, fields){
 		if (err) throw err;
-	res.render('productdetail',{product:result});
+	res.render('productdetail',{name:req.session.uid,product:result[0],comment:result[1],short : result[2], pants : result[3], shoes: result[4], etc: result[5], overcoat: result[6],codylen:result[7],pid:id});
 	});
 });
 app.get('/productselect' , (req,res) => {
+	const id = req.session.uid;
 	const sql = "SELECT * from product;";
-
-	con.query(sql,function(err, result,  fields){
+	const sql3 = "select * from shirt where shuserid =?;" ;
+	const sql4 = "select * from pants where puserid =?;" ;
+	const sql5 = "select * from shoes where suserid =?;" ;
+	const sql6 = "select * from etc where userid =?;" ;
+	const sql7 = "select * from overcoat where ovuserid =?;" ;
+	const sql8 = "select * from cody where codyuserid =?;" ;
+	con.query(sql+sql3+sql4+sql5+sql6+sql7+sql8,[id,id,id,id,id,id],function(err, result,  fields){
 		if (err) throw err;
 	console.log(result);
-	res.render('productselect',{product:result});
+	res.render('productselect',{name:req.session.uid,product:result[0],short : result[1], pants : result[2], shoes: result[3], etc: result[4], overcoat: result[5],codylen:result[6]});
+	});
+});
+app.get('/myshop' , (req,res) => {
+	const pid= req.session.uid;
+	const sql = "SELECT * from product where prouserid =?;";
+
+	con.query(sql,[pid],function(err, result,  fields){
+		if (err) throw err;
+	console.log(result);
+	res.render('myshop',{product:result});
 	});
 });
 
@@ -230,14 +262,16 @@ app.post('/product' , (req,res) => {
 	const image3 = req.body.image3;
 	const image4 = req.body.image4;
 	const image5 = req.body.image5;
+	const id= req.session.uid;
+
  console.log(oneimage);
  console.log(image2);
  console.log(image3);
  console.log(image4);
  console.log(image5);
 console.log(title);
-	const sql = "INSERT INTO product (name, region, price,description,product_img,product_img2,product_img3,product_img4,product_img5,product_oneimage) VALUES(?,?,?,?,?,?,?,?,?,?);";
-	con.query(sql,[title,region,price,description,image,image2,image3,image4,image5,oneimage],function(err, result, fields){
+	const sql = "INSERT INTO product (name, region, price,description,product_img,product_img2,product_img3,product_img4,product_img5,product_oneimage,prouserid) VALUES(?,?,?,?,?,?,?,?,?,?,?);";
+	con.query(sql,[title,region,price,description,image,image2,image3,image4,image5,oneimage,id],function(err, result, fields){
 		if (err) throw err;
 		res.redirect('/productselect');
 	});
@@ -249,13 +283,22 @@ app.get('/product' , (req,res) => {
 if(req.query.name=='여러개'){
 	con.query(sql,[req.query.spec],function(err, result, fields){
 		if (err) throw err;
-	res.render('product',{image: result,oneimage:dsd});
+	res.render('product',{name:req.session.uid,image: result,oneimage:dsd});
 	})
 }else{
-	res.render('product',{image:ad, oneimage: req.query.spec});
+	res.render('product',{name:req.session.uid,image:ad, oneimage: req.query.spec});
 }
 });
-
+app.post('/comment' , (req,res) => {
+	const uid=req.session.uid;
+	const pid= req.body.pid;
+	const cont = req.body.content;
+	const sql = "INSERT INTO comment (product_id, conuserid, content) VALUES(?,?,?);";
+	con.query(sql,[pid,uid,cont],function(err, result, fields){
+		if (err) throw err;
+		res.redirect('back');	
+	});
+});
 app.post('/codypicregister', upload.single('codyimage'),(req,res) => {
 	console.log(req.file);
 	const codyimage = req.file.filename;
@@ -448,7 +491,7 @@ app.get('/delete/:id',(req,res)=>{
 		res.redirect('/login');
 	})
 }else if(req.query.spec=='아우터'){
-	const sql = "DELETE FROM outer WHERE id = ?";
+	const sql = "DELETE FROM overcoat WHERE id = ?";
 	con.query(sql,[req.params.id],function(err,result,fields){
 		if (err) throw err;
 		console.log(result)
@@ -456,7 +499,22 @@ app.get('/delete/:id',(req,res)=>{
 	})
 }
 });
-
+app.get('/productdelete/:id',(req,res)=>{
+	const sql = "DELETE FROM product WHERE product_id = ?";
+	con.query(sql,[req.params.id],function(err,result,fields){
+		if (err) throw err;
+		console.log(result)
+		res.redirect('/productselect');
+	})
+});
+app.get('/codydelete/:id',(req,res)=>{
+	const sql = "DELETE FROM cody WHERE cody_id = ?";
+	con.query(sql,[req.params.id],function(err,result,fields){
+		if (err) throw err;
+		console.log(result)
+		res.redirect('/codyregister');
+	})
+});
 app.get('/closeregister', (req, res) => 
 	res.sendFile(path.join(__dirname, 'closeregister.html')));
 
