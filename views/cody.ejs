@@ -81,7 +81,7 @@
           <span class="link_name">거래</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">거래</a></li>
+          <li><a class="link_name" href="productselect">거래</a></li>
         </ul>
       </li>     
       <li>
@@ -110,10 +110,10 @@
 
   <section class="home-section">
     <div class="sectiontop">
-      <span class="close_count">옷 개수: </span>
-      <span class="close_count">코디 개수:</span>
+      <span class="close_count">옷 개수: <%=short.length +pants.length+shoes.length+etc.length +overcoat.length%></span>
+      <span class="close_count">코디 개수: <%=codylen.length%></span>
       <span class="close_count">*도움말</span>
-      <span class="close_count">*마이 쇼핑</span>
+      <span class="close_count"><a style="  font-family: 'GangwonEduPowerExtraBoldA';text-decoration: none; color:black;" href="/myshop">*마이 쇼핑</a></span>
       <span class="user_name"><%=name%>님 환영합니다</span> 
 
       <a class="logout" href="/logout">로그아웃</a>
@@ -144,7 +144,13 @@
         <button class ="catebtn" value ="여름" onclick="starts()" >여름</button>
         <button class ="catebtn" value ="가을" onclick="starts()" >가을</button>
         <button class ="catebtn" value ="겨울" onclick="starts()" >겨울</button>
+        <button class ="catebtn" value ="스트릿" onclick="codyspec()" >스트릿</button>
         <button class ="catebtn" value ="캐주얼" onclick="codyspec()" >캐주얼</button>
+        <button class ="catebtn" value ="빈티지" onclick="codyspec()" >빈티지</button>
+        <button class ="catebtn" value ="모던" onclick="codyspec()" >모던</button>
+        <button class ="catebtn" value ="댄디" onclick="codyspec()" >댄디</button>
+        <button class ="catebtn" value ="미니멀리즘" onclick="codyspec()" >미니멀리즘</button>
+        <button class ="catebtn" value ="클래식" onclick="codyspec()" >클래식</button>
         <button class ="catebtn" value ="스포티" onclick="codyspec()" >스포티</button>
 
         </div>
@@ -164,9 +170,9 @@
           <div class = "first_box">
             <div class ="codyname"><%= cody[i].codyname %></div>
 
-          <img src="<%= cody[i].shimage %>"style="width: 120px; height: 120px; margin-top:16px;" alt="..." >
-          <img src="<%= cody[i].pimage %>" style="width: 120px; height: 120px; margin-top:10px;" alt="..." >
-          <img src="<%= cody[i].simage %>" style="width: 120px; height: 120px; margin-top:10px;" alt="..." >
+          <img src="<%= cody[i].shimage %>"onerror="this.onerror=null; this.src='no_img.jpg'"; style="width: 120px; height: 120px; margin-top:16px;" alt="..." >
+          <img src="<%= cody[i].pimage %>"onerror="this.onerror=null; this.src='no_img.jpg'"; style="width: 120px; height: 120px; margin-top:10px;" alt="..." >
+          <img src="<%= cody[i].simage %>"onerror="this.onerror=null; this.src='no_img.jpg'"; style="width: 120px; height: 120px; margin-top:10px;" alt="..." >
         </div>
         <div class = "second_box">
 
@@ -202,11 +208,9 @@
         등록하기
       </button>
       <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="//closeadd?user=<%=name[0]%>">옷 등록</a></li>
-        <li><a class="dropdown-item" href="/select?user=<%=name[0]%>">카테고리별로 코디등록 </a></li>
-        <li><a class="dropdown-item" href="/pictureselect?user=<%=name[0]%>">사진으로 코디등록</a></li>
-
-        
+        <li><a class="dropdown-item" href="/closeadd?user=<%=name%>">옷 등록</a></li>
+        <li><a class="dropdown-item" href="/select?user=<%=name%>">카테고리별로 코디등록 </a></li>
+        <li><a class="dropdown-item" href="/pictureselect?user=<%=name%>">사진으로 코디등록</a></li>
       </ul>
     </div>
     <div>
@@ -283,7 +287,7 @@ if(filter==='전체'){
 
   
   if(spec[0].innerHTML===filter){ // card-spec클래스의 태그의 value값 === btn클래스의 사용자 선택한 버튼의 value값
-   
+
     item[i].style.display = "flex"; //card클래스 보여줌
   
   }
@@ -321,11 +325,13 @@ for(i=0;i<item.length;i++){
 
   
   if(codyspec[0].innerHTML===filter){ // card-spec클래스의 태그의 value값 === btn클래스의 사용자 선택한 버튼의 value값
-   
+    $(".home-content span").text(filter);
+
     item[i].style.display = "flex"; //card클래스 보여줌
   
   }
   else{
+    $(".home-content span").text(filter);
     item[i].style.display = "none";
   }
 }

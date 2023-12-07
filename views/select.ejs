@@ -146,6 +146,13 @@ overflow-x:auto;
   display: none;
 
 }
+.overcoat_input{
+  display: none;
+
+}.etc_input{
+  display: none;
+
+}
    </style>
 <body>
   <div class="sidebar close">
@@ -207,7 +214,7 @@ overflow-x:auto;
           <span class="link_name">거래</span>
         </a>
         <ul class="sub-menu blank">
-          <li><a class="link_name" href="#">거래</a></li>
+          <li><a class="link_name" href="productselect">거래</a></li>
         </ul>
       </li>     
       <li>
@@ -338,23 +345,30 @@ overflow-x:auto;
   <div class="pantsbox" alt='ds' ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" ><h1 class="pants_dragtext">하의를 드롭해주세요</h1></div>
   <div class="shoesbox" alt='ds' ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" ><h1 class="shoes_dragtext">신발을 드롭해주세요</h1></div>
 </div>
-<div class ='firstbox'>
+<div style="margin-left:60px;"class ='firstbox'>
   <div class="overcoatbox" alt='ds' ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" ><h1 class="overcoat_dragtext">아우터를 드롭해주세요</h1></div>
   <div class="etcbox" alt='ds' ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" ><h1 class="etc_dragtext">쥬얼리를 드롭해주세요</h1></div>
   <form action="/codyregister" method="POST">
-    <input type="text" name="codyname" value="" placeholder="코디이름을 입력해주세요" required>
+    <div style="width:270px;"class="txt_field">
+      <input class="input_name" name="codyname" type="text" required/>
+      <span></span>
+      <label>코디이름</label>
+    </div>
     <input class="pants_input" type="text" name="pants" value="" >
     <input class="close_input" type="text" name="shirt" value="" >  
     <input class="shoes_input" type="text" name="shoes" value="" >
     <input class="etc_input" type="text" name="etc" value="" >
     <input class="overcoat_input" type="text" name="overcoat" value="" >
+    <span>계절: </span> 
 
-<select name = 'seasonspec'>
+<select style="margin-right:10px;"name = 'seasonspec'>
 <option value="봄">봄</option>
 <option value="여름">여름</option>
 <option value="가을">가을</option>
 <option value="겨울">겨울</option>
 </select>
+<span>스타일: </span> 
+
 <select name = 'codyspec'>
   <option value="스트릿">스트릿</option>
   <option value="캐주얼">캐주얼</option>
@@ -366,7 +380,7 @@ overflow-x:auto;
   <option value="스포티">스포티</option>
 
   </select>
-    <button type ="submit">등록하기</button>
+    <button style="width:270px; height:180px;"class="add_made" type ="submit">등록하기</button>
  </form>
 </div>
   
