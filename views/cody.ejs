@@ -113,47 +113,33 @@
       <span class="close_count">옷 개수: <%=short.length +pants.length+shoes.length+etc.length +overcoat.length%></span>
       <span class="close_count">코디 개수: <%=codylen.length%></span>
       <span class="close_count">*도움말</span>
-      <span class="close_count"><a style="  font-family: 'GangwonEduPowerExtraBoldA';text-decoration: none; color:black;" href="/myshop">*마이 쇼핑</a></span>
-      <span class="user_name"><%=name%>님 환영합니다</span> 
-
-      <a class="logout" href="/logout">로그아웃</a>
-
     </div>
     <div class="secondtop">
-      <span class="logo">옷짱.</span> 
-
-      <select value="2022년" name ='YEAR' title ="연도" class="select_year" style="margin-bottom:20px;">
-        <option value="2022년">2022년</option>
-        <option value="2021년">2021년</option>
-        <option value="2020년">2020년</option>
-        <option value="2019년">2019년</option>
-      </select>
+      <span class="logo">StyleCloset.</span> 
+      <a class="heart_icon"></a>
+      <a class="cart_icon"></a>
+      <a class="alarm_icon"></a>
+      <span class="user_name"><%=name%>님 환영합니다</span> 
    </div>
-   <div class="thirdtop">
-
-    <input class="input_search"  type="text" id="search" onkeyup="codyfilter()" placeholder="찾고싶은 제품명을 검색하세요." />
-  </div>
+   <form class="input_form">
+    <input class="input_search"  type="text" id="search" onkeyup="filter()" placeholder="찾고싶은 제품명을 검색하세요." />
+<input  class="search_icon" />
+</form>
  
-    <div style ='margin-top:0px; border-bottom: 2px solid rgb(170, 167, 167); width:1900px;'></div>
+    <div style ='margin-top:20px; border-bottom: 2px solid rgb(170, 167, 167); width:1900px;'></div>
     <div class="home-content">
 
       <span class="text">전체 코디</span>  
-      <div class="buttongroup">
-        <button class ="catebtn" value ="전체" onclick="starts()" >전체</button>
-        <button class ="catebtn" value ="봄" onclick="starts()" >봄</button>
-        <button class ="catebtn" value ="여름" onclick="starts()" >여름</button>
-        <button class ="catebtn" value ="가을" onclick="starts()" >가을</button>
-        <button class ="catebtn" value ="겨울" onclick="starts()" >겨울</button>
-        <button class ="catebtn" value ="스트릿" onclick="codyspec()" >스트릿</button>
-        <button class ="catebtn" value ="캐주얼" onclick="codyspec()" >캐주얼</button>
-        <button class ="catebtn" value ="빈티지" onclick="codyspec()" >빈티지</button>
-        <button class ="catebtn" value ="모던" onclick="codyspec()" >모던</button>
-        <button class ="catebtn" value ="댄디" onclick="codyspec()" >댄디</button>
-        <button class ="catebtn" value ="미니멀리즘" onclick="codyspec()" >미니멀리즘</button>
-        <button class ="catebtn" value ="클래식" onclick="codyspec()" >클래식</button>
-        <button class ="catebtn" value ="스포티" onclick="codyspec()" >스포티</button>
-
-        </div>
+      <select id="categoryDropdown" onchange="filterCategory()" class="custom-dropdown">
+        <option value="전체">전체 코디</option>
+        <option value="봄">봄 코디</option>
+        <option value="여름">여름 코디</option>
+        <option value="가을">가을 코디</option>
+        <option value="겨울">겨울 코디</option>
+        <option value="스트릿">스트릿 코디</option>
+        <option value="캐주얼">캐주얼 코디</option>
+        <option value="클래식">클래식 코디</option>
+      </select>
     </div>
 
     <div class ="category">카테고리별 코디</div>
@@ -303,6 +289,47 @@ if(filter==='전체'){
 }))
 
 }
+
+function filterCategory() {
+  var item, i, body, spec;
+  var selectValue = document.getElementById("categoryDropdown").value;
+  item = document.getElementsByClassName("card");
+  body = document.getElementsByClassName("card-body");
+  var colorSection = document.getElementsByClassName("home-section")[0]; // 홈 섹션에 대한 참조
+
+  for (i = 0; i < item.length; i++) {
+    if (selectValue === '전체') {
+      $(".home-content span").text("전체 옷장");
+      item[i].style.display = "flex";
+      colorSection.style.backgroundColor = "white";
+    } else {
+      if (selectValue === "봄") {
+        $(".home-content span").text("봄 옷장");
+        colorSection.style.backgroundColor = "pink"; // 봄 선택 시 색상 변경
+
+        // 기타 필요한 작업들...
+
+      } else if (selectValue === "여름") {
+        $(".home-content span").text("여름 옷장");
+        colorSection.style.backgroundColor = "#96B1D0";
+      } else if (selectValue === "가을") {
+        $(".home-content span").text("가을 옷장");
+        colorSection.style.backgroundColor = "#800020 ";
+      } else if (selectValue === "겨울") {
+        $(".home-content span").text("겨울 옷장");
+        colorSection.style.backgroundColor = "#96B1D0";
+      } 
+
+      spec = body[i].getElementsByClassName("card-closet-spec");
+      if (spec[0].innerHTML === selectValue) {
+        item[i].style.display = "flex";
+      } else {
+        item[i].style.display = "none";
+      }
+    }
+  }
+}
+
 
 function codyspec() {
 

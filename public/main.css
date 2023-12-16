@@ -322,8 +322,23 @@ box-shadow: 2px 6px 8px 0 rgba(22,22,26,0.18);
   width:134px;
   height:110px;
 }
+.comment{
+  width:1812px;
+  min-height: 250px;
+  margin: 10px .5em;
+  box-shadow: 2px 6px 8px 0 rgba(22,22,26,0.18);
+  border-radius: 5px;
+  margin-left:50px;
+}
+.comment_list{
+  width:1792px;
+  min-height: 250px;
+  margin: 10px .5em;
+  box-shadow: 2px 6px 8px 0 rgba(22,22,26,0.18);
+  border-radius: 5px;
+}
 .card{
-  min-width:202px;
+  min-width:182px;
   min-height: 250px;
   margin: 10px .5em;
   box-shadow: 2px 6px 8px 0 rgba(22,22,26,0.18);
@@ -366,6 +381,12 @@ display: none;
   .category{
     font-family: 'NanumSquareNeo-Variable';
     margin-top: 30px;
+    font-size:3ch;
+    margin-left:50px;
+  }
+  .category_select{
+    font-family: 'NanumSquareNeo-Variable';
+    margin-top: 80px;
     font-size:3ch;
     margin-left:50px;
   }
@@ -451,6 +472,14 @@ font-family: 'NanumSquareNeo-Variable';
     margin-bottom: 10px;
     min-height: 30px;
 }
+.selectinput_form{
+  position: absolute;
+  top: 70px;
+  left: 50px;
+  z-index: 100;
+  margin-bottom: 10px;
+  min-height: 30px;
+}
 .search_icon{
   position: absolute;
   cursor: pointer;
@@ -534,9 +563,9 @@ color: rgb(12, 12, 12);
   margin-left:400px;
   display:flex;
   margin-top:60px;
-  border-bottom: 1px solid black;
   width: 55%;
 }
+
 .product_container{
   display:flex;
 }

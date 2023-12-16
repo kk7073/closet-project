@@ -254,14 +254,11 @@ overflow-x:auto;
       <i class='bx bx-menu' ></i>
       <span class="text">코디 선택하기</span>  
     </div>
-    <label>검색: <input type="text" id="search" onkeyup="filter()" placeholder="제품명을검색하세요." /></label>
-    <button class ="catebtn" value ="전체" onclick="starts()" >전체</button>
-    <button class ="catebtn" value ="봄" onclick="starts()" >봄</button>
-    <button class ="catebtn" value ="여름" onclick="starts()" >여름</button>
-    <button class ="catebtn" value ="가을" onclick="starts()" >가을</button>
-    <button class ="catebtn" value ="겨울" onclick="starts()" >겨울</button>
-
-    <div class ="category">상의</div>
+    <form class="selectinput_form">
+      <input class="input_search"  type="text" id="search" onkeyup="filter()" placeholder="찾고싶은 제품명을 검색하세요." />
+<input  class="search_icon" />
+</form>
+    <div class ="category_select">상의</div>
     <div class="scrolling-short" id="상의" ondrop="drop(this, event);" ondragenter="return false;" ondragover="return false;" >
 <% for(var i=0; i<shorts.length; i++) { %>
   <div id="sh<%= shorts[i].id %>"  class ='card' style="min-width:155px; min-height:55px;">
